@@ -36,7 +36,7 @@ class SecuredController extends Controller
      */
     public function securityCheckAction()
     {
-        // The security layer will intercept this request
+        // La capa de seguridad debe interceptar la petición
     }
 
     /**
@@ -44,7 +44,7 @@ class SecuredController extends Controller
      */
     public function logoutAction()
     {
-        // The security layer will intercept this request
+        // La capa de seguridad debe interceptar la petición
     }
 
     /**

@@ -36,7 +36,7 @@ security:
                 target: /demo/
             #anonymous: ~
             #http_basic:
-            #    realm: "Secured Demo Area"
+            #    realm: "Área protegida de la Demostración"
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

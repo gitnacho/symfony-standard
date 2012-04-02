@@ -35,7 +35,7 @@ class DemoExtension extends \Twig_Extension
         $controller = htmlspecialchars($this->getControllerCode(), ENT_QUOTES, 'UTF-8');
         $template = htmlspecialchars($this->getTemplateCode($template), ENT_QUOTES, 'UTF-8');
 
-        // remove the code block
+        // quita el bloque de código
         $template = str_replace('{% set code = code(_self) %}', '', $template);
 
         return <<<EOF
@@ -63,9 +63,9 @@ EOF;
     }
 
     /**
-     * Returns the name of the extension.
+     * Devuelve el nombre de la extensión.
      *
-     * @return string The extension name
+     * @return string El nombre de la extensión
      */
     public function getName()
     {

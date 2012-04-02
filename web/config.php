@@ -1,80 +1,80 @@
 <?php
 
 if (!isset($_SERVER['HTTP_HOST'])) {
-    exit('This script cannot be run from the CLI. Run it from a browser.');
+    exit('Este programa no se puede ejecutar desde la CLI. Ejecútalo desde un navegador.');
 }
 
 if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
     '127.0.0.1',
     '::1',
 ))) {
-    header('HTTP/1.0 403 Forbidden');
-    exit('This script is only accessible from localhost.');
+    header('HTTP/1.0 403 Prohibido');
+    exit('Este programa únicamente es accesible a través de "localhost".');
 }
 
 $majorProblems = array();
 $minorProblems = array();
 $phpini = false;
 
-// minimum
+// mínimo
 if (!version_compare(phpversion(), '5.3.2', '>=')) {
     $version = phpversion();
     $majorProblems[] = <<<EOF
-        You are running PHP version "<strong>$version</strong>", but Symfony
-        needs at least PHP "<strong>5.3.2</strong>" to run. Before using Symfony, install
-        PHP "<strong>5.3.2</strong>" or newer.
+        Estás ejecutando la versión "<strong>$version</strong>" de PHP, pero
+        Symfony necesita cuando menos PHP "<strong>5.3.2</strong>" para correr. Antes de usar Symfony, instala
+        PHP "<strong>5.3.2</strong>" o más reciente.
 EOF;
 }
 
 if (!is_dir(__DIR__.'/../vendor/symfony')) {
     $vendorsAreMissing = true;
-    $majorProblems[] = '<strong>CRITICAL</strong>: Vendor libraries are missing. Install composer following instructions from: <a href="http://getcomposer.org/">http://getcomposer.org/</a>. Then run
-        "<strong>php composer.phar install</strong>" to install them.';
+    $majorProblems[] = '<strong>CRÍTICO</strong>: Faltan las bibliotecas de proveedores. Instala composer siguiendo las instrucciones de: <a href="http://getcomposer.org/">http://getcomposer.org/</a>. Luego ejecuta
+        "<strong>php composer.phar install</strong>" para instalarlas.';
 } else {
     $vendorsAreMissing = false;
 }
 
 if (!is_writable(__DIR__ . '/../app/cache')) {
-    $majorProblems[] = 'Change the permissions of the "<strong>app/cache/</strong>"
-        directory so that the web server can write into it.';
+    $majorProblems[] = 'Cambia los permisos del directorio "<strong>app/cache/</strong>"
+        para que el servidor web pueda escribir ahí.';
 }
 
 if (!is_writable(__DIR__ . '/../app/logs')) {
-    $majorProblems[] = 'Change the permissions of the "<strong>app/logs/</strong>"
-        directory so that the web server can write into it.';
+    $majorProblems[] = 'Cambia los permisos del directorio "<strong>app/logs/</strong>"
+        para que el servidor web pueda escribir ahí.';
 }
 
-// extensions
+// extensiones
 if (!class_exists('DomDocument')) {
-    $minorProblems[] = 'Install and enable the <strong>php-xml</strong> module.';
+    $minorProblems[] = 'Instala y activa el módulo <strong>php-xml</strong>.';
 }
 
 if (!((function_exists('apc_store') && ini_get('apc.enabled')) || function_exists('eaccelerator_put') && ini_get('eaccelerator.enable') || function_exists('xcache_set'))) {
-    $minorProblems[] = 'Install and enable a <strong>PHP accelerator</strong> like APC (highly recommended).';
+    $minorProblems[] = 'Instala y activa un <strong>acelerador PHP</strong> como APC (extremadamente recomendable).';
 }
 
 if (!(!(function_exists('apc_store') && ini_get('apc.enabled')) || version_compare(phpversion('apc'), '3.0.17', '>='))) {
-    $majorProblems[] = 'Upgrade your <strong>APC</strong> extension (3.0.17+)';
+    $majorProblems[] = 'Actualiza tu extensión <strong>APC</strong> (3.0.17+)';
 }
 
 if (!function_exists('mb_strlen')) {
-    $minorProblems[] = 'Install and enable the <strong>mbstring</strong> extension.';
+    $minorProblems[] = 'Instala y activa la extensión <strong>mbstring</strong>.';
 }
 
 if (!function_exists('iconv')) {
-    $minorProblems[] = 'Install and enable the <strong>iconv</strong> extension.';
+    $minorProblems[] = 'Instala y activa la extensión <strong>iconv</strong>.';
 }
 
 if (!function_exists('utf8_decode')) {
-    $minorProblems[] = 'Install and enable the <strong>XML</strong> extension.';
+    $minorProblems[] = 'Instala y activa la extensión <strong>XML</strong>.';
 }
 
 if (!defined('PHP_WINDOWS_VERSION_BUILD') && !function_exists('posix_isatty')) {
-    $minorProblems[] = 'Install and enable the <strong>php_posix</strong> extension (used to colorize the CLI output).';
+    $minorProblems[] = 'Instala y activa la extensión <strong>php_posix</strong> (usada para colorear la salida de la CLI).';
 }
 
 if (!class_exists('Locale')) {
-    $minorProblems[] = 'Install and enable the <strong>intl</strong> extension.';
+    $minorProblems[] = 'Instala y activa la extensión <strong>intl</strong>.';
 } else {
     $version = '';
 
@@ -92,65 +92,65 @@ if (!class_exists('Locale')) {
     }
 
     if (!version_compare($version, '4.0', '>=')) {
-        $minorProblems[] = 'Upgrade your <strong>intl</strong> extension with a newer ICU version (4+).';
+        $minorProblems[] = 'Actualiza tu extensión <strong>intl</strong> con una nueva versión de ICU (4+).';
     }
 }
 
 if (!function_exists('json_encode')) {
-    $majorProblems[] = 'Install and enable the <strong>json</strong> extension.';
+    $majorProblems[] = 'Instala y activa la extensión <strong>json</strong>.';
 }
 
 if (!function_exists('session_start')) {
-    $majorProblems[] = 'Install and enable the <strong>session</strong> extension.';
+    $majorProblems[] = 'Instala y activa la extensión <strong>session</strong>.';
 }
 
 if (!function_exists('ctype_alpha')) {
-    $majorProblems[] = 'Install and enable the <strong>ctype</strong> extension.';
+    $majorProblems[] = 'Instala y activa la extensión <strong>ctype</strong>.';
 }
 
 if (!function_exists('token_get_all')) {
-    $majorProblems[] = 'Install and enable the <strong>Tokenizer</strong> extension.';
+    $majorProblems[] = 'Instala y activa la extensión <strong>Tokenizer</strong>.';
 }
 
 if (!function_exists('simplexml_import_dom')) {
-    $majorProblems[] = 'Install and enable the <strong>SimpleXML</strong> extension.';
+    $majorProblems[] = 'Instala y activa la extensión <strong>SimpleXML</strong>.';
 }
 
 // php.ini
 if (!ini_get('date.timezone')) {
     $phpini = true;
-    $majorProblems[] = 'Set the "<strong>date.timezone</strong>" setting in php.ini<a href="#phpini">*</a> (like Europe/Paris).';
+    $majorProblems[] = 'Configura la "<strong>date.timezone</strong>" en php.ini<a href="#phpini">*</a> (similar a America/Mexico_City).';
 }
 
 if (ini_get('detect_unicode')) {
     $phpini = true;
-    $majorProblems[] = 'Set the "<strong>detect_unicode</strong>" to <strong>off</strong> in php.ini<a href="#phpini">*</a>.';
+    $majorProblems[] = 'Configura "<strong>detect_unicode</strong>" a <strong>off</strong> en php.ini<a href="#phpini">*</a>.';
 }
 
 $suhosin = ini_get('suhosin.executor.include.whitelist');
 if (false !== $suhosin && false === stripos($suhosin, 'phar')) {
     $phpini = true;
-    $majorProblems[] = 'Set the "<strong>suhosin.executor.include.whitelist</strong>" to "<strong>phar'.($suhosin?' '.$suhosin:'').'</strong>" in php.ini<a href="#phpini">*</a>.';
+    $majorProblems[] = 'Configura la "<strong>suhosin.executor.include.whitelist</strong>" a "<strong>phar'.($suhosin?' '.$suhosin:'').'</strong>" en php.ini<a href="#phpini">*</a>.';
 }
 
 if (ini_get('short_open_tag')) {
     $phpini = true;
-    $minorProblems[] = 'Set <strong>short_open_tag</strong> to <strong>off</strong> in php.ini<a href="#phpini">*</a>.';
+    $minorProblems[] = 'Configura <strong>short_open_tag</strong> a <strong>off</strong> en php.ini<a href="#phpini">*</a>.';
 }
 
 if (ini_get('magic_quotes_gpc')) {
     $phpini = true;
-    $minorProblems[] = 'Set <strong>magic_quotes_gpc</strong> to <strong>off</strong> in php.ini<a href="#phpini">*</a>.';
+    $minorProblems[] = 'Configura <strong>magic_quotes_gpc</strong> a <strong>off</strong> en php.ini<a href="#phpini">*</a>.';
 }
 
 if (ini_get('register_globals')) {
     $phpini = true;
-    $minorProblems[] = 'Set <strong>register_globals</strong> to <strong>off</strong> in php.ini<a href="#phpini">*</a>.';
+    $minorProblems[] = 'Configura <strong>register_globals</strong> a <strong>off</strong> en php.ini<a href="#phpini">*</a>.';
 }
 
 if (ini_get('session.auto_start')) {
     $phpini = true;
-    $minorProblems[] = 'Set <strong>session.auto_start</strong> to <strong>off</strong> in php.ini<a href="#phpini">*</a>.';
+    $minorProblems[] = 'Configura <strong>session.auto_start</strong> a <strong>off</strong> en php.ini<a href="#phpini">*</a>.';
 }
 
 ?>
@@ -161,7 +161,7 @@ if (ini_get('session.auto_start')) {
         <?php if (!$vendorsAreMissing): ?>
         <link rel="stylesheet" href="bundles/sensiodistribution/webconfigurator/css/install.css" />
         <?php endif; ?>
-        <title>Symfony Configuration</title>
+        <title>Configurando Symfony</title>
     </head>
     <body>
         <div id="symfony-wrapper">
@@ -169,21 +169,21 @@ if (ini_get('session.auto_start')) {
                 <div class="symfony-blocks-install">
                     <?php if (!$vendorsAreMissing): ?>
                     <div class="symfony-block-logo">
-                        <img src="bundles/sensiodistribution/webconfigurator/images/logo-big.gif" alt="Symfony logo" />
+                        <img src="bundles/sensiodistribution/webconfigurator/images/logo-big.gif" alt="Logo de Symfony" />
                     </div>
                     <?php endif; ?>
 
                     <div class="symfony-block-content">
                         <h1>Welcome!</h1>
-                        <p>Welcome to your new Symfony project.</p>
+                        <p>Bienvenido a tu nuevo proyecto Symfony.</p>
                         <p>
-                            This script will guide you through the basic configuration of your project. 
-                            You can also do the same by editing the ‘<strong>app/config/parameters.yml</strong>’ file directly.
+                            Este programa te guiará a través de la configuración básica de tu proyecto. 
+                            También puedes hacer los mismo editando el archivo ‘<strong>app/config/parameters.yml</strong>’ directamente.
                         </p>
 
                         <?php if (count($majorProblems)): ?>
-                            <h2><?php echo count($majorProblems) ?> Major problems</h2>
-                            <p>Major problems have been detected and <strong>must</strong> be fixed before continuing:</p>
+                            <h2><?php echo count($majorProblems) ?> Problemas importantes</h2>
+                            <p>Se han detectado importantes problemas y los <strong>debes</strong> solucionar antes de continuar:</p>
                             <ol>
                                 <?php foreach ($majorProblems as $problem): ?>
                                     <li><?php echo $problem ?></li>
@@ -192,10 +192,10 @@ if (ini_get('session.auto_start')) {
                         <?php endif; ?>
 
                         <?php if (count($minorProblems)): ?>
-                            <h2>Recommendations</h2>
+                            <h2>Recomendaciones</h2>
                             <p>
-                                <?php if ($majorProblems): ?>Additionally, to<?php else: ?>To<?php endif; ?> enhance your Symfony experience, 
-                                it’s recommended that you fix the following:
+                                <?php if ($majorProblems): ?>Adicionalmente, para<?php else: ?>Para<?php endif; ?> mejora tu experiencia con Symfony, 
+                                es recomendable que corrijas lo siguiente:
                             </p>
                             <ol>
                                 <?php foreach ($minorProblems as $problem): ?>
@@ -207,24 +207,24 @@ if (ini_get('session.auto_start')) {
                         <?php if ($phpini): ?>
                             <p id="phpini">*
                                 <?php if (get_cfg_var('cfg_file_path')): ?>
-                                    Changes to the <strong>php.ini</strong> file must be done in "<strong><?php echo get_cfg_var('cfg_file_path') ?></strong>".
+                                    Los cambios al archivo <strong>php.ini</strong> los debes hacer en "<strong><?php echo get_cfg_var('cfg_file_path') ?></strong>".
                                 <?php else: ?>
-                                    To change settings, create a "<strong>php.ini</strong>".
+                                    Para cambiar las opciones, crea un "<strong>php.ini</strong>".
                                 <?php endif; ?>
                             </p>
                         <?php endif; ?>
 
                         <ul class="symfony-install-continue">
                             <?php if (!count($majorProblems)): ?>
-                                <li><a href="app_dev.php/_configurator/">Configure your Symfony Application online</a></li>
-                                <li><a href="app_dev.php/">Bypass configuration and go to the Welcome page</a></li>
+                                <li><a href="app_dev.php/_configurator/">Configura en línea tu aplicación Symfony</a></li>
+                                <li><a href="app_dev.php/">Pospón la configuración y llévame a la página de bienvenida</a></li>
                             <?php endif; ?>
-                            <li><a href="config.php">Re-check configuration</a></li>
+                            <li><a href="config.php">Vuelve a probar</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="version">Symfony Standard Edition</div>
+        <div class="version">Edición estándar de Symfony</div>
     </body>
 </html>

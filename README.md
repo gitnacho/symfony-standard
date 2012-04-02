@@ -1,9 +1,9 @@
-Edición estándar de Symfony
-===========================
+Edición estándar de Symfony en Español
+======================================
 
-Bienvenidos a la edición estándar de Symfony - una aplicación Symfony2
-totalmente funcional que puedes utilizar como el esqueleto de tu nueva
-aplicación. Si deseas obtener más información sobre las características
+Bienvenidos a la edición estándar de Symfony en Español - una aplicación
+Symfony2 totalmente funcional que puedes utilizar como el esqueleto de
+tu nueva aplicación con la ligera ventaja que está traducida al Español. Si deseas obtener más información sobre las características
 incluidas, consulta la sección "¿Qué hay dentro?".
 
 Este documento contiene información sobre cómo descargar y comenzar a

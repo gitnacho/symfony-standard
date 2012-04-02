@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Acme\DemoBundle\Form\ContactType;
 
-// these import the "@Route" and "@Template" annotations
+// Esto importa las anotaciones "@Route" y "@Template"
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -43,8 +43,8 @@ class DemoController extends Controller
             $form->bindRequest($request);
             if ($form->isValid()) {
                 $mailer = $this->get('mailer');
-                // .. setup a message and send it
-                // http://symfony.com/doc/current/cookbook/email.html
+                // .. configura un mensaje y lo envía
+                // http://gitnacho.github.com/symfony-docs-es/cookbook/email.html
 
                 $this->get('session')->setFlash('notice', 'Message sent!');
 

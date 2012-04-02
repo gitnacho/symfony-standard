@@ -16,12 +16,12 @@ framework:
     session:
         auto_start:     true
 
-# Twig Configuration
+# Configuración de Twig
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
-# Assetic Configuration
+# Configuración de Assetic
 assetic:
     debug:          %kernel.debug%
     use_controller: false
@@ -34,7 +34,7 @@ assetic:
         #yui_css:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
-# Doctrine Configuration
+# Configuración de Doctrine
 doctrine:
     dbal:
         driver:   %database_driver%
@@ -49,7 +49,7 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
-# Swiftmailer Configuration
+# Configuración de Swiftmailer
 swiftmailer:
     transport: %mailer_transport%
     host:      %mailer_host%

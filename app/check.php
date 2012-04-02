@@ -1,53 +1,53 @@
 <?php
 
 if (!$iniPath = get_cfg_var('cfg_file_path')) {
-    $iniPath = 'WARNING: not using a php.ini file';
+    $iniPath = 'CUIDADO: no se usa un archivo php.ini';
 }
 
-echo "********************************\n";
-echo "*                              *\n";
-echo "*  Symfony requirements check  *\n";
-echo "*                              *\n";
-echo "********************************\n\n";
-echo sprintf("php.ini used by PHP: %s\n\n", $iniPath);
+echo "***************************************\n";
+echo "*                                     *\n";
+echo "*  Comprobando requisitos de Symfony  *\n";
+echo "*                                     *\n";
+echo "***************************************\n\n";
+echo sprintf("php.ini usado por PHP: %s\n\n", $iniPath);
 
-echo "** WARNING **\n";
-echo "*  The PHP CLI can use a different php.ini file\n";
-echo "*  than the one used with your web server.\n";
+echo "** CUIDADO **\n";
+echo "*  La CLI de PHP puede usar un archivo php.ini\n";
+echo "*  diferente al usado por tu servidor web.\n";
 if ('\\' == DIRECTORY_SEPARATOR) {
-    echo "*  (especially on the Windows platform)\n";
+    echo "*  (especialmente en plataformas Windows)\n";
 }
-echo "*  If this is the case, please ALSO launch this\n";
-echo "*  utility from your web server.\n";
-echo "** WARNING **\n";
+echo "*  Si este es el caso, por favor lanza esta\n";
+echo "*  utilidad desde tu servidor web.\n";
+echo "** CUIDADO **\n";
 
-// mandatory
-echo_title("Mandatory requirements");
-check(version_compare(phpversion(), '5.3.2', '>='), sprintf('Checking that PHP version is at least 5.3.2 (%s installed)', phpversion()), 'Install PHP 5.3.2 or newer (current version is '.phpversion(), true);
-check(is_dir(__DIR__.'/../vendor/symfony'), 'Checking that vendor libraries are installed', 'Vendor libraries are missing; Install composer following instructions from http://getcomposer.org/ and then run "php composer.phar install" to install them', true);
-check(ini_get('date.timezone'), 'Checking that the "date.timezone" setting is set', 'Set the "date.timezone" setting in php.ini (like Europe/Paris)', true);
-check(is_writable(__DIR__.'/../app/cache'), sprintf('Checking that app/cache/ directory is writable'), 'Change the permissions of the app/cache/ directory so that the web server can write in it', true);
-check(is_writable(__DIR__.'/../app/logs'), sprintf('Checking that the app/logs/ directory is writable'), 'Change the permissions of the app/logs/ directory so that the web server can write in it', true);
-check(function_exists('json_encode'), 'Checking that the json_encode() is available', 'Install and enable the json extension', true);
-check(function_exists('session_start'), 'Checking that the session_start() is available', 'Install and enable the session extension', true);
-check(function_exists('ctype_alpha'), 'Checking that the ctype_alpha() is available', 'Install and enable the ctype extension', true);
-check(function_exists('token_get_all'), 'Checking that the token_get_all() is available', 'Install and enable the tokenizer extension', true);
-check(function_exists('simplexml_import_dom'), 'Checking that the simplexml_import_dom() is available', 'Install and enable the simplexml extension', true);
-check(!(function_exists('apc_store') && ini_get('apc.enabled')) || version_compare(phpversion('apc'), '3.0.17', '>='), 'Checking that the APC version is at least 3.0.17', 'Upgrade your APC extension (3.0.17+)', true);
-check(!ini_get('detect_unicode'), 'Checking that php.ini has detect_unicode set to off', 'Set detect_unicode to off in php.ini', true);
+// obligatorios
+echo_title("Requisitos obligatorios");
+check(version_compare(phpversion(), '5.3.2', '>='), sprintf('Comprobando que PHP cuando menos sea la v. 5.3.2 (%s instalada)', phpversion()), 'Instala PHP 5.3.2 o más reciente (actualmente tienes la '.phpversion(), true);
+check(is_dir(__DIR__.'/../vendor/symfony'), 'Comprobando las bibliotecas de proveedores instaladas', 'Faltan las bibliotecas de proveedores; Instala composer siguiendo las instrucciones desde http://getcomposer.org/ y luego ejecuta "php composer.phar install" para instalarlas', true);
+check(ini_get('date.timezone'), 'Comprobando se haya ajustado la "date.timezone"', 'Ajusta la "date.timezone" en php.ini (como America/Mexico_City)', true);
+check(is_writable(__DIR__.'/../app/cache'), sprintf('Comprobando que se puede escribir en el directorio app/cache/'), 'Cambia los permisos del directorio app/cache/ para que el servidor web pueda escribir en ese lugar', true);
+check(is_writable(__DIR__.'/../app/logs'), sprintf('Comprobando que se puede escribir en el directorio app/logs/'), 'Cambia los permisos del directorio app/logs/ para que el servidor web pueda escribir en ese lugar', true);
+check(function_exists('json_encode'), 'Comprobando disponibilidad de json_encode()', 'Instala y activa la ext. json', true);
+check(function_exists('session_start'), 'Comprobando disponibilidad de session_start()', 'Instala y activa la ext. session', true);
+check(function_exists('ctype_alpha'), 'Comprobando disponibilidad de ctype_alpha()', 'Instala y activa la ext. ctype', true);
+check(function_exists('token_get_all'), 'Comprobando disponibilidad de token_get_all()', 'Instala y activa la ext. tokenizer', true);
+check(function_exists('simplexml_import_dom'), 'Comprobando disponibilidad de simplexml_import_dom()', 'Instala y activa la ext. simplexml', true);
+check(!(function_exists('apc_store') && ini_get('apc.enabled')) || version_compare(phpversion('apc'), '3.0.17', '>='), 'Comprobando que APC cuando menos sea la v. 3.0.17', 'Actualiza tu ext. APC (3.0.17+)', true);
+check(!ini_get('detect_unicode'), 'Comprobando que php.ini tenga detect_unicode configurado en off', 'Configura detect_unicode a off en php.ini', true);
 $suhosin = ini_get('suhosin.executor.include.whitelist');
-check(false === $suhosin || false !== stripos($suhosin, 'phar'), 'Checking that php.ini has suhosin.executor.include.whitelist correctly configured', 'Set suhosin.executor.include.whitelist to "phar'.($suhosin? ' '.$suhosin:'').'"  in php.ini', true);
+check(false === $suhosin || false !== stripos($suhosin, 'phar'), 'Comprobando que php.ini tenga correctamente configurado suhosin.executor.include.whitelist', 'Configura suhosin.executor.include.whitelist a "phar'.($suhosin? ' '.$suhosin:'').'"  in php.ini', true);
 
-// warnings
-echo_title("Optional checks");
-check(class_exists('DomDocument'), 'Checking that the PHP-XML module is installed', 'Install and enable the php-xml module', false);
-check(function_exists('mb_strlen'), 'Checking that the mb_strlen() function is available', 'Install and enable the mbstring extension', false);
-check(function_exists('iconv'), 'Checking that the iconv() function is available', 'Install and enable the iconv extension', false);
-check(function_exists('utf8_decode'), 'Checking that the utf8_decode() is available', 'Install and enable the XML extension', false);
+// Advertencias
+echo_title("Comprobaciones opcionales");
+check(class_exists('DomDocument'), 'Comprobando disponibilidad del módulo PHP-XML', 'Instala y activa el módulo php-xml', false);
+check(function_exists('mb_strlen'), 'Comprobando disponibilidad de la func. mb_strlen()', 'Instala y activa la ext. mbstring', false);
+check(function_exists('iconv'), 'Comprobando disponibilidad de la func. iconv()', 'Instala y activa la ext. iconv', false);
+check(function_exists('utf8_decode'), 'Comprobando disponibilidad de utf8_decode()', 'Instala y activa la ext. XML', false);
 if (!defined('PHP_WINDOWS_VERSION_BUILD')) {
-    check(function_exists('posix_isatty'), 'Checking that the posix_isatty() is available', 'Install and enable the php_posix extension (used to colorized the CLI output)', false);
+    check(function_exists('posix_isatty'), 'Comprobando disponibilidad de posix_isatty()', 'Instala y activa la ext. php_posix (usada para colorear la salida en la CLI)', false);
 }
-check(class_exists('Locale'), 'Checking that the intl extension is available', 'Install and enable the intl extension (used for validators)', false);
+check(class_exists('Locale'), 'Comprobando disponibilidad de la ext. intl', 'Instala y activa la ext. intl (usada por los validadores)', false);
 if (class_exists('Locale')) {
     $version = '';
 
@@ -64,7 +64,7 @@ if (class_exists('Locale')) {
         $version = $matches[1];
     }
 
-    check(version_compare($version, '4.0', '>='), 'Checking that the intl ICU version is at least 4+', 'Upgrade your intl extension with a newer ICU version (4+)', false);
+    check(version_compare($version, '4.0', '>='), 'Comprobando que la ICU intl cuando menos sea la v. 4+', 'Actualiza tu ext. intl con una nueva ICU (v. 4+)', false);
 }
 
 $accelerator =
@@ -74,33 +74,33 @@ $accelerator =
     ||
     function_exists('xcache_set')
 ;
-check($accelerator, 'Checking that a PHP accelerator is installed', 'Install a PHP accelerator like APC (highly recommended)', false);
+check($accelerator, 'Comprobando disponibilidad de un acelerador para PHP', 'Instala un acelerador de PHP como APC (extremadamente recomendable)', false);
 
-check(!ini_get('short_open_tag'), 'Checking that php.ini has short_open_tag set to off', 'Set short_open_tag to off in php.ini', false);
-check(!ini_get('magic_quotes_gpc'), 'Checking that php.ini has magic_quotes_gpc set to off', 'Set magic_quotes_gpc to off in php.ini', false);
-check(!ini_get('register_globals'), 'Checking that php.ini has register_globals set to off', 'Set register_globals to off in php.ini', false);
-check(!ini_get('session.auto_start'), 'Checking that php.ini has session.auto_start set to off', 'Set session.auto_start to off in php.ini', false);
+check(!ini_get('short_open_tag'), 'Comprobando que php.ini tenga short_open_tag configurado en off', 'Configura short_open_tag a off en php.ini', false);
+check(!ini_get('magic_quotes_gpc'), 'Comprobando que php.ini tenga magic_quotes_gpc configurado en off', 'Configura magic_quotes_gpc a off en php.ini', false);
+check(!ini_get('register_globals'), 'Comprobando que php.ini tenga register_globals configuradas en off', 'Configura register_globals a off en php.ini', false);
+check(!ini_get('session.auto_start'), 'Comprobando que php.ini tenga session.auto_start configurada en off', 'Configura session.auto_start a off en php.ini', false);
 
-echo_title("Optional checks (Doctrine)");
+echo_title("Comprobaciones opcionales (Doctrine)");
 
-check(class_exists('PDO'), 'Checking that PDO is installed', 'Install PDO (mandatory for Doctrine)', false);
+check(class_exists('PDO'), 'Comprobando disponibilidad de PDO', 'Instala PDO (obligatorio para Doctrine)', false);
 if (class_exists('PDO')) {
     $drivers = PDO::getAvailableDrivers();
-    check(count($drivers), 'Checking that PDO has some drivers installed: '.implode(', ', $drivers), 'Install PDO drivers (mandatory for Doctrine)');
+    check(count($drivers), 'Comprobando que PDO tenga instalados algunos controladores: '.implode(', ', $drivers), 'Instala controladores de PDO (obligatorio para Doctrine)');
 }
 
 /**
- * Checks a configuration.
+ * Comprueba una configuración.
  */
 function check($boolean, $message, $help = '', $fatal = false)
 {
-    echo $boolean ? "  OK        " : sprintf("\n\n[[%s]] ", $fatal ? ' ERROR ' : 'WARNING');
-    echo sprintf("$message%s\n", $boolean ? '' : ': FAILED');
+    echo $boolean ? "  BIEN      " : sprintf("\n\n[[%s]] ", $fatal ? ' ERROR ' : 'CUIDADO');
+    echo sprintf("$message%s\n", $boolean ? '' : ': FALLA');
 
     if (!$boolean) {
         echo "            *** $help ***\n";
         if ($fatal) {
-            exit("You must fix this problem before resuming the check.\n");
+            exit("Debes solucionar estos problemas antes de continuar.\n");
         }
     }
 }
