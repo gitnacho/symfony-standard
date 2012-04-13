@@ -153,6 +153,7 @@ paquetes:
 * **JMSSecurityExtraBundle** - Te permite definir la seguridad de tu
   aplicación a través de anotaciones
   ([documentación](http://gitnacho.github.com/symfony-docs-es/bundles/JMSSecurityExtraBundle/index.html))
+* **JMSDiExtraBundle** - Agrega muy potentes características de inyección de dependencias
 * **WebProfilerBundle** (en entornos dev/test) - Añade funcionalidad para la
   creación de perfiles y la barra de herramientas de depuración web
 * **SensioDistributionBundle** (en entornos dev/test) - Añade funcionalidad
