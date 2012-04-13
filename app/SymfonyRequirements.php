@@ -164,15 +164,15 @@ class PhpIniRequirement extends Requirement
 
         if (is_callable($evaluation)) {
             if (null === $testMessage || null === $helpHtml) {
-                throw new InvalidArgumentException('Debes suministrar los parámetros testMessage y helpHtml para una evaluación retrollamada');
+                throw new InvalidArgumentException('Debes suministrar los parámetros testMessage y helpHtml para evaluar una retrollamada');
             }
 
             $fulfilled = call_user_func($evaluation, $cfgValue);
         } else {
             if (null === $testMessage) {
-                $testMessage = sprintf('%s %s be %s in php.ini',
+                $testMessage = sprintf('%s %s estar %s en php.ini',
                     $cfgName,
-                    $optional ? 'tiene' : 'debe',
+                    $optional ? 'tiene que' : 'debe',
                     $evaluation ? 'activada' : 'desactivada'
                 );
             }
@@ -500,11 +500,11 @@ class SymfonyRequirements extends RequirementCollection
 
         $this->addRequirement(
             version_compare($installedPhpVersion, self::REQUIRED_PHP_VERSION, '>='),
-            sprintf('La versión de PHP por lo menos debe ser %s (instalada la versión %s)', self::REQUIRED_PHP_VERSION, $installedPhpVersion),
-            sprintf('Estás usando la versión "<strong>%s</strong>" de PHP, pero Symfony necesita por lo menos la versión "<strong>%s</strong>" de PHP.
-                Antes de usar Symfony, actualiza tu instalación de PHP, preferiblemente a la versión más reciente.',
+            sprintf('PHP por lo menos debe ser la -v%s (instalada -v%s)', self::REQUIRED_PHP_VERSION, $installedPhpVersion),
+            sprintf('Tienes PHP -v"<strong>%s</strong>", pero Symfony por lo menos necesita PHP -v"<strong>%s</strong>".
+                Antes de usar Symfony, actualiza tu PHP, preferiblemente a la nueva.',
                 $installedPhpVersion, self::REQUIRED_PHP_VERSION),
-            sprintf('Instala PHP %s o más reciente (la versión instalada es %s)', self::REQUIRED_PHP_VERSION, $installedPhpVersion)
+            sprintf('Instala PHP -v%s+ (tienes instalada la -v%s)', self::REQUIRED_PHP_VERSION, $installedPhpVersion)
         );
 
         $this->addRequirement(
@@ -528,44 +528,44 @@ class SymfonyRequirements extends RequirementCollection
 
         $this->addPhpIniRequirement(
             'date.timezone', true, false,
-            'Debes configurar la opción date.timezone',
-            'Ajusta la configuración "<strong>date.timezone</strong>" en php.ini<a href="#phpini">*</a> (como America/Mexico_City).'
+            'Debes configurar la date.timezone',
+            'Ajusta "<strong>date.timezone</strong>" en php.ini<a href="#phpini">*</a> (como America/Mexico_City).'
         );
 
         $this->addRequirement(
             function_exists('json_encode'),
             'json_encode() debe estar disponible',
-            'Instala y activa la extensión <strong>JSON</strong>.'
+            'Instala y activa la ext. <strong>JSON</strong>.'
         );
 
         $this->addRequirement(
             function_exists('session_start'),
             'session_start() debe estar disponible',
-            'Instala y activa la extensión <strong>session</strong>.'
+            'Instala y activa la ext. <strong>session</strong>.'
         );
 
         $this->addRequirement(
             function_exists('ctype_alpha'),
             'ctype_alpha() debe estar disponible',
-            'Instala y activa la extensión <strong>ctype</strong>.'
+            'Instala y activa la ext. <strong>ctype</strong>.'
         );
 
         $this->addRequirement(
             function_exists('token_get_all'),
             'token_get_all() debe estar disponible',
-            'Instala y activa la extensión <strong>Tokenizer</strong>.'
+            'Instala y activa la ext. <strong>Tokenizer</strong>.'
         );
 
         $this->addRequirement(
             function_exists('simplexml_import_dom'),
             'simplexml_import_dom() debe estar disponible',
-            'Instala y activa la extensión <strong>SimpleXML</strong>.'
+            'Instala y activa la ext. <strong>SimpleXML</strong>.'
         );
 
         $this->addRequirement(
             !(function_exists('apc_store') && ini_get('apc.enabled')) || version_compare(phpversion('apc'), '3.0.17', '>='),
-            'La versión de APC cuando menos debe ser la 3.0.17',
-            'Actualiza tu extensión <strong>APC</strong> a (3.0.17+)'
+            'APC cuando menos debe ser la .v3.0.17',
+            'Actualiza tu ext. <strong>APC</strong> a (3.0.17+)'
         );
 
         $this->addPhpIniRequirement('detect_unicode', false);
@@ -582,40 +582,40 @@ class SymfonyRequirements extends RequirementCollection
 
         $this->addRecommendation(
             class_exists('DomDocument'),
-            'Debes instalar el módulo PHP-XML',
-            'Instala y activa el módulo <strong>PHP-XML</strong>.'
+            'Debes instalar PHP-XML',
+            'Instala y activa <strong>PHP-XML</strong>.'
         );
 
         $this->addRecommendation(
             function_exists('mb_strlen'),
             'mb_strlen() debe estar disponible',
-            'Instala y activa la extensión <strong>mbstring</strong>.'
+            'Instala y activa la ext. <strong>mbstring</strong>.'
         );
 
         $this->addRecommendation(
             function_exists('iconv'),
             'iconv() debe estar disponible',
-            'Instala y activa la extensión <strong>iconv</strong>.'
+            'Instala y activa la ext. <strong>iconv</strong>.'
         );
 
         $this->addRecommendation(
             function_exists('utf8_decode'),
             'utf8_decode() debe estar disponible',
-            'Instala y activa la extensión <strong>XML</strong>.'
+            'Instala y activa la ext. <strong>XML</strong>.'
         );
 
         if (!defined('PHP_WINDOWS_VERSION_BUILD')) {
             $this->addRecommendation(
                 function_exists('posix_isatty'),
                 'posix_isatty() debe estar disponible',
-                'Instala y activa la extensión <strong>php_posix</strong> (usada para colorear la salida en la interfaz de la línea de ordenes).'
+                'Instala y activa la ext. <strong>php_posix</strong> (usada para colorear la salida en la CLI).'
             );
         }
 
         $this->addRecommendation(
             class_exists('Locale'),
-            'La extensión intl debe estar disponible',
-            'Instala y activa la extensión <strong>intl</strong> (usada por los validadores).'
+            'La ext. intl debe estar disponible',
+            'Instala y activa la ext. <strong>intl</strong> (usada por los validadores).'
         );
 
         if (class_exists('Locale')) {
@@ -634,8 +634,8 @@ class SymfonyRequirements extends RequirementCollection
 
             $this->addRecommendation(
                 version_compare($version, '4.0', '>='),
-                'La versión de intl ICU cuando menos debe ser la 4+',
-                'Actualiza tu extensión <strong>intl</strong> con una nueva versión ICU (4+).'
+                'intl ICU cuando menos debe ser la -v4+',
+                'Actualiza tu ext. <strong>intl</strong> con una nueva ICU (4+).'
             );
         }
 
