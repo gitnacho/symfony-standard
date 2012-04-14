@@ -1,9 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-// if you don't want to setup permissions the proper way, just uncomment the following PHP line
-// read http://symfony.com/doc/current/book/installation.html#configuration-and-setup for more information
+// Si no quieres configurar los permisos de la manera convencional sólo
+// quita el comentario de la siguiente línea PHP
 //umask(0000);
+// lee http://gitnacho.github.com/symfony-docs-es/book/installation.html#instalando-y-configurando-symfony
+// para más información
 
 set_time_limit(0);
 
