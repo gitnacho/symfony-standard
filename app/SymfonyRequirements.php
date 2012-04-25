@@ -31,7 +31,7 @@ class Requirement
      * @param Boolean      $fulfilled     Si se cumple el requisito
      * @param string       $testMessage   El mensaje para probar el requisito
      * @param string       $helpHtml      El texto de ayuda en formato HTML
-     *                                       para resolver el problema
+     *                                    para resolver el problema
      * @param string|null  $helpText      El texto de ayuda (cuando es null,
      *                                       se inferirá desde $helpHtml,
      *                                       Es decir, será despojado de
@@ -230,7 +230,7 @@ class RequirementCollection implements IteratorAggregate
      * @param Boolean      $fulfilled     Si se cumple el requisito
      * @param string       $testMessage   El mensaje para probar el requisito
      * @param string       $helpHtml      El texto de ayuda en formato HTML
-     *                                       para resolver el problema
+     *                                    para resolver el problema
      * @param string|null  $helpText      El texto de ayuda (cuando es null, este 
      *                                    será inferido desde $helpHtml, es
      *                                    decir será despojado de las
@@ -247,7 +247,7 @@ class RequirementCollection implements IteratorAggregate
      * @param Boolean      $fulfilled     Si cumple la recomendación
      * @param string       $testMessage   El mensaje para probar la recomendación
      * @param string       $helpHtml      El texto de ayuda en formato HTML
-     *                                       para resolver el problema
+     *                                    para resolver el problema
      * @param string|null  $helpText      El texto de ayuda (cuando es null, este 
      *                                    será inferido desde $helpHtml, es
      *                                    decir será despojado de las

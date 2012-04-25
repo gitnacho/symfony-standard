@@ -122,7 +122,10 @@ Después de jugar con él, lo puedes eliminar siguiendo estos pasos:
    ``app/config/routing_dev.yml``;
 * quita el ``AcmeBundle`` de los paquetes registrados en
   ``app/AppKernel.php``;
-* borra el directorio ``web/bundles/acmedemo``.
+* elimina el directorio ``web/bundles/acmedemo``;
+* quita la inclusión de la configuración de seguridad en
+  ``app/config/config.yml`` (eliminar la línea ``- { resource: security.yml }``)
+  o ajusta la configuración predefinida para cubrir tus necesidades.
 
 ¿Qué hay dentro?
 ----------------

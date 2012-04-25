@@ -9,10 +9,13 @@
 // Esto previene el acceso para depurar los controladores frontales que se
 // despliegan por accidente a los servidores de producción.
 // Siéntete libre de quitarlo, extenderlo, o hacer algo mucho más sofisticado.
-if (!in_array(@$_SERVER['REMOTE_ADDR'], array(
-    '127.0.0.1',
-    '::1',
-))) {
+if (isset($_SERVER['HTTP_CLIENT_IP'])
+    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+    || !in_array(@$_SERVER['REMOTE_ADDR'], array(
+        '127.0.0.1',
+        '::1',
+    ))
+) {
     header('HTTP/1.0 403 Prohibido');
     exit('No tienes permitido acceder a este archivo. Consulta '.basename(__FILE__).' para más información.');
 }

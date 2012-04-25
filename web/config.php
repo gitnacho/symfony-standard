@@ -24,7 +24,7 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="bundles/sensiodistribution/webconfigurator/css/install.css" />
+        <link rel="stylesheet" href="bundles/sensiodistribution/webconfigurator/css/install.css" media="all" />
         <title>Configurando Symfony</title>
     </head>
     <body>
