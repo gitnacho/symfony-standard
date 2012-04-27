@@ -3,7 +3,8 @@ Edición estándar de Symfony en Español
 
 Bienvenidos a la edición estándar de Symfony en Español - una aplicación
 Symfony2 totalmente funcional que puedes utilizar como el esqueleto de
-tu nueva aplicación con la ligera ventaja que está traducida al Español. Si deseas obtener más información sobre las características
+tu nueva aplicación con la ligera ventaja que está traducida al Español. 
+Si deseas obtener más información sobre las características
 incluidas, consulta la sección "¿Qué hay dentro?".
 
 Este documento contiene información sobre cómo descargar y comenzar a
@@ -151,12 +152,11 @@ paquetes:
   registro
   ([documentación](http://gitnacho.github.com/symfony-docs-es/cookbook/logging/monolog.html))
 * **AsseticBundle** - Agrega soporte para Assetic, una biblioteca para el
-  procesamiento de los activos
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/cookbook/assetic/asset_management.html))
+  procesamiento de los activos ([documentación](http://gitnacho.github.com/symfony-docs-es/cookbook/assetic/asset_management.html))
 * **JMSSecurityExtraBundle** - Te permite definir la seguridad de tu
-  aplicación a través de anotaciones
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/bundles/JMSSecurityExtraBundle/index.html))
-* **JMSDiExtraBundle** - Agrega muy potentes características de inyección de dependencias
+  aplicación a través de anotaciones ([documentación](http://jmsyst.com/bundles/JMSSecurityExtraBundle/1.1))
+* **JMSDiExtraBundle** - Añade características más potentes a la inyección
+   de dependencias ([documentación](http://jmsyst.com/bundles/JMSDiExtraBundle/1.0))
 * **WebProfilerBundle** (en entornos dev/test) - Añade funcionalidad para la
   creación de perfiles y la barra de herramientas de depuración web
 * **SensioDistributionBundle** (en entornos dev/test) - Añade funcionalidad
