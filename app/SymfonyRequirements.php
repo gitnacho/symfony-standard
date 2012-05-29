@@ -487,7 +487,7 @@ class RequirementCollection implements IteratorAggregate
  */
 class SymfonyRequirements extends RequirementCollection
 {
-    const REQUIRED_PHP_VERSION = '5.3.2';
+    const REQUIRED_PHP_VERSION = '5.3.3';
 
     /**
      * Constructor que inicia los requisitos.
@@ -514,21 +514,22 @@ class SymfonyRequirements extends RequirementCollection
                 'Luego ejecuta "<strong>php composer.phar install</strong>" para instalarlas.'
         );
 
+        $baseDir = basename(__DIR__);
         $this->addRequirement(
-            is_writable(__DIR__.'/../app/cache'),
-            'El directorio app/cache/ debe contar con el privilegio de escritura',
-            'Cambia los permisos del directorio "<strong>app/cache/</strong>" para que el servidor web pueda escribir ahí.'
+            is_writable(__DIR__.'/cache'),
+            "El directorio $baseDir/cache/ debe ser modificable",
+            "Cambia los permisos del directorio \"<strong>$baseDir/cache/</strong>\" para que el servidor web pueda escribir ahí."
         );
 
         $this->addRequirement(
-            is_writable(__DIR__.'/../app/logs'),
-            'El directorio app/logs/ debe contar con el privilegio de escritura',
-            'Cambia los permisos del directorio "<strong>app/logs/</strong>" para que el servidor web pueda escribir ahí.'
+            is_writable(__DIR__.'/logs'),
+            "El directorio $baseDir/logs/ debe ser modificable",
+            "Cambia los permisos del directorio \"<strong>$baseDir/logs/</strong>\" para que el servidor web puede escribir ahí."
         );
 
         $this->addPhpIniRequirement(
             'date.timezone', true, false,
-            'Debes configurar la date.timezone',
+            'Debes configurar la directiva date.timezone',
             'Ajusta "<strong>date.timezone</strong>" en php.ini<a href="#phpini">*</a> (como America/Mexico_City).'
         );
 
@@ -587,6 +588,12 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         /* siguen las recomendaciones opcionales */
+
+        $this->addRecommendation(
+            version_compare($installedPhpVersion, '5.3.8', '>='),
+            sprintf('Las anotaciones no trabajan adecuadamente debido al fallo #55156 antes de PHP 5.3.8 (%s instalado)', $installedPhpVersion),
+            'Instala PHP 5.3.8 o más reciente si tu proyecto usa anotaciones'
+        );
 
         $this->addRecommendation(
             class_exists('DomDocument'),
