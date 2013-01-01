@@ -9,6 +9,20 @@
  * favor ve el archivo LICENSE adjunto a este código fuente.
  */
 
+/*
+ * Usuarios de PHP 5.2 deben poder ejecutar la comprobación de requisitos.
+ * Esto es por lo que el archivo y todas las clases tienen que ser compatibles
+ * con PHP 5.2+ (p.e. no usando espacios de nombres y cierres).
+ *
+ * ************** PRECAUCIÓN **************
+ *
+ * NO EDITES ESTE ARCHIVO cuando sea sobrescrito por composer como parte
+ * del proceso de instalación/actualización. El archivo original reside en el
+ * SensioDistributionBundle.
+ *
+ * ************** PRECAUCIÓN **************
+ */
+
 /**
  * Representa un solo requisito PHP, p.e. una extensión instalada.
  * Este puede ser obligatorio o una recomendación opcional.
@@ -111,16 +125,16 @@ class PhpIniRequirement extends Requirement
      * Constructor que inicia el requisito.
      *
      * @param string            $cfgName            El nombre de la configuración
-     *                                              usado por ini_get()
+     *                                       usado por ini_get()
      * @param Boolean|callback  $evaluation         Ya sea un Boolean indicando
-     *                                              si la configuración debe
-     *                                              evaluar a true o false, o
-     *                                              una función retrollamada
-     *                                              que recibe el valor de
-     *                                              configuración como
-     *                                              parámetro para determinar
-     *                                              el cumplimiento del
-     *                                              requisito
+     *                                       si la configuración debe
+     *                                       evaluar a true o false, o
+     *                                       una función retrollamada
+     *                                       que recibe el valor de
+     *                                       configuración como
+     *                                       parámetro para determinar
+     *                                       el cumplimiento del
+     *                                       requisito
      * @param Boolean           $approveCfgAbsence  Si es true el requisito se
      *                                              debe cumplir incluso si
      *                                              la opción de configuración
@@ -133,24 +147,22 @@ class PhpIniRequirement extends Requirement
      *                                              una extensión opcional,
      *                                              tal como Suhosin.
                                                     Ejemplo: Requieres que una
-     *                                              configuración sea true,
-     *                                              pero más adelante PHP elimina
+     *                                      configuración sea true, pero más
+     *                                              adelante PHP elimina
      *                                              esta configuración y por
      *                                              omisión internamente es
      *                                              true.
-     * @param string            $testMessage        El mensaje para probar el
-     *                                              requisito (cuando es null
-     *                                              y $evaluation es un valor
-     *                                              booleano se deriva un
-     *                                              mensaje predeterminado)
+     * @param string|null       $testMessage        El mensaje para probar requisitos (cuándo
+                                             es null y $evaluation es un Booleano un
+                                             mensaje predefinido es derivado)
      * @param string            $helpHtml           El texto de ayuda en formato
      *                                              HTML para resolver el
      *                                              problema (cuando es null
      *                                              y $evaluation es un valor
-     *                                              booleano se deriva la
-     *                                              ayuda predeterminada)
+     *                                              booleano del cual se deriva
+     *                                              la ayuda predeterminada)
      * @param string|null       $helpText           El texto de ayuda (cuando es
-     *                                              null,se inferirá desde
+     *                                              null, se inferirá desde
      *                                              $helpHtml, es decir,
      *                                              será despojado de las
      *                                              etiquetas HTML)
@@ -193,10 +205,6 @@ class PhpIniRequirement extends Requirement
 
 /**
  * Una RequirementCollection representa un conjunto de instancias Requirement.
- *
- * Usuarios de PHP 5.2 deben poder ejecutar la comprobación de requisitos.
- * Esto es porque la clase debe ser compatible con PHP 5.2
- * (p.e. no usando espacios de nombres y cierres).
  *
  * @author Tobias Schultze <http://tobion.de>
  */
@@ -262,16 +270,16 @@ class RequirementCollection implements IteratorAggregate
      * Agrega un requisito obligatorio en forma de una configuración de php.ini.
      *
      * @param string            $cfgName            El nombre de la configuración
-     *                                              usado por ini_get()
+     *                                       usado por ini_get()
      * @param Boolean|callback  $evaluation         Ya sea un Boolean indicando
-     *                                              si la configuración debe
-     *                                              evaluar a true o false, o
-     *                                              una función retrollamada
-     *                                              que recibe el valor de
-     *                                              configuración como
-     *                                              parámetro para determinar
-     *                                              el cumplimiento del
-     *                                              requisito
+     *                                       si la configuración debe
+     *                                       evaluar a true o false, o
+     *                                       una función retrollamada
+     *                                       que recibe el valor de
+     *                                       configuración como
+     *                                       parámetro para determinar
+     *                                       el cumplimiento del
+     *                                       requisito
      * @param Boolean           $approveCfgAbsence  Si es true el requisito se
      *                                              debe cumplir incluso si
      *                                              la opción de configuración
@@ -284,8 +292,8 @@ class RequirementCollection implements IteratorAggregate
      *                                              una extensión opcional,
      *                                              tal como Suhosin.
                                                     Ejemplo: Requieres que una
-     *                                              configuración sea true,
-     *                                              pero más adelante PHP elimina
+     *                                      configuración sea true, pero más
+     *                                              adelante PHP elimina
      *                                              esta configuración y por
      *                                              omisión internamente es
      *                                              true.
@@ -315,16 +323,16 @@ class RequirementCollection implements IteratorAggregate
      * Agrega una recomendación opcional en forma de una configuración de php.ini.
      *
      * @param string            $cfgName            El nombre de la configuración
-     *                                              usado por ini_get()
+     *                                       usado por ini_get()
      * @param Boolean|callback  $evaluation         Ya sea un Boolean indicando
-     *                                              si la configuración debe
-     *                                              evaluar a true o false, o
-     *                                              una función retrollamada
-     *                                              que recibe el valor de
-     *                                              configuración como
-     *                                              parámetro para determinar
-     *                                              el cumplimiento del
-     *                                              requisito
+     *                                       si la configuración debe
+     *                                       evaluar a true o false, o
+     *                                       una función retrollamada
+     *                                       que recibe el valor de
+     *                                       configuración como
+     *                                       parámetro para determinar
+     *                                       el cumplimiento del
+     *                                       requisito
      * @param Boolean           $approveCfgAbsence  Si es true el requisito se
      *                                              debe cumplir incluso si
      *                                              la opción de configuración
@@ -337,8 +345,8 @@ class RequirementCollection implements IteratorAggregate
      *                                              una extensión opcional,
      *                                              tal como Suhosin.
                                                     Ejemplo: Requieres que una
-     *                                              configuración sea true,
-     *                                              pero más adelante PHP elimina
+     *                                      configuración sea true, pero más
+     *                                              adelante PHP elimina
      *                                              esta configuración y por
      *                                              omisión internamente es
      *                                              true.
@@ -484,6 +492,7 @@ class RequirementCollection implements IteratorAggregate
  * son necesarias para ejecutar la Edición estándar de Symfony.
  *
  * @author Tobias Schultze <http://tobion.de>
+ * @author Fabien Potencier <fabien@symfony.com>
  */
 class SymfonyRequirements extends RequirementCollection
 {
@@ -508,13 +517,20 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         $this->addRequirement(
-            is_dir(__DIR__.'/../vendor/symfony'),
-            'Debes instalar las bibliotecas de proveedores',
-            'Faltan las bibliotecas de proveedores. Instala composer siguiendo la instrucciones de <a href="http://getcomposer.org/">http://getcomposer.org/</a>. ' .
+            version_compare($installedPhpVersion, '5.3.16', '!='),
+            'La versión de PHP no debe ser 5.3.16 puesto que Symfony no trabaja apropiadamente con ella,
+            'Instala PHP 5.3.17 o más reciente (o degrada PHP a una versión anterior)'
+        );
+
+        $this->addRequirement(
+            is_dir(__DIR__.'/../vendor/composer'),
+            'Debes instalar las bibliotecas de terceros',
+            'Faltan bibliotecas de terceros en el directorio Vendor. Instala composer siguiendo la instrucciones de <a href="http://getcomposer.org/">http://getcomposer.org/</a>. ' .
                 'Luego ejecuta "<strong>php composer.phar install</strong>" para instalarlas.'
         );
 
         $baseDir = basename(__DIR__);
+
         $this->addRequirement(
             is_writable(__DIR__.'/cache'),
             "El directorio $baseDir/cache/ debe ser modificable",
@@ -532,6 +548,14 @@ class SymfonyRequirements extends RequirementCollection
             'Debes configurar la directiva date.timezone',
             'Ajusta "<strong>date.timezone</strong>" en php.ini<a href="#phpini">*</a> (como America/Mexico_City).'
         );
+
+        if (version_compare($installedPhpVersion, self::REQUIRED_PHP_VERSION, '>=')) {
+            $this->addRequirement(
+                (in_array(date_default_timezone_get(), DateTimeZone::listIdentifiers())),
+                sprintf('La zona horaria configurada "%s" debe ser compatible con tu instalación de PHP', date_default_timezone_get()),
+                'Tu zona horaria predefinida no es compatible con PHP. Revisa si tienes algún error en tu archivo <strong>php.ini</strong> y échale un vistazo a la lista de zonas horarias incompatibles en <a href="http://php.net/manual/en/timezones.others.php">http://php.net/manual/en/timezones.others.php</a>.'
+            );
+        }
 
         $this->addRequirement(
             function_exists('json_encode'),
@@ -563,37 +587,77 @@ class SymfonyRequirements extends RequirementCollection
             'Instala y activa la ext. <strong>SimpleXML</strong>.'
         );
 
-        $this->addRequirement(
-            !(function_exists('apc_store') && ini_get('apc.enabled')) || version_compare(phpversion('apc'), '3.0.17', '>='),
-            'APC cuando menos debe ser la .v3.0.17',
-            'Actualiza tu ext. <strong>APC</strong> a (3.0.17+)'
-        );
+        if (function_exists('apc_store') && ini_get('apc.enabled')) {
+            $this->addRequirement(
+                version_compare(phpversion('apc'), '3.0.17', '>='),
+                'La versi\ón de APC por lo menos debe ser la 3.0.17',
+                'Actualiza tu extensi\ón <strong>APC</strong> (3.0.17+).'
+            );
+        }
 
         $this->addPhpIniRequirement('detect_unicode', false);
 
-        $this->addPhpIniRequirement(
-            'suhosin.executor.include.whitelist',
-            create_function('$cfgValue', 'return false !== stripos($cfgValue, "phar");'),
-            true,
-            'debes configurar correctamente suhosin.executor.include.whitelist en php.ini',
-            'Agrega "<strong>phar</strong>" a <strong>suhosin.executor.include.whitelist</strong> en php.ini<a href="#phpini">*</a>.'
-        );
+        if (extension_loaded('suhosin')) {
+            $this->addPhpIniRequirement(
+                'suhosin.executor.include.whitelist',
+                create_function('$cfgValue', 'return false !== stripos($cfgValue, "phar");'),
+                false,
+                'debes configurar correctamente suhosin.executor.include.whitelist en php.ini',
+                'Agrega "<strong>phar</strong>" a <strong>suhosin.executor.include.whitelist</strong> en php.ini<a href="#phpini">*</a>.'
+            );
+        }
+
+        if (extension_loaded('xdebug')) {
+            $this->addPhpIniRequirement(
+                'xdebug.show_exception_trace', false, true
+            );
+
+            $this->addPhpIniRequirement(
+                'xdebug.scream', false, true
+            );
+        }
 
         $pcreVersion = defined('PCRE_VERSION') ? (float) PCRE_VERSION : null;
 
         $this->addRequirement(
-            null !== $pcreVersion && $pcreVersion > 8.0,
-            sprintf('La ext. PCRE debe estar disponible y por lo menos debe ser la 8.0 (%s instalada)', $pcreVersion ? $pcreVersion : 'not'),
-            'Actualiza tu ext. <strong>PCRE</strong> (8.0+)'
+            null !== $pcreVersion,
+            'PCRE extension must be available',
+            'Install the <strong>PCRE</strong> extension (version 8.0+).'
         );
 
         /* siguen las recomendaciones opcionales */
 
         $this->addRecommendation(
-            version_compare($installedPhpVersion, '5.3.8', '>='),
-            sprintf('Las anotaciones no trabajan adecuadamente debido al fallo #55156 antes de PHP 5.3.8 (%s instalado)', $installedPhpVersion),
-            'Instala PHP 5.3.8 o más reciente si tu proyecto usa anotaciones'
+            file_get_contents(__FILE__) === file_get_contents(__DIR__.'/../vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/skeleton/app/SymfonyRequirements.php'),
+            'Requirements file should be up-to-date',
+            'Your requirements file is outdated. Run composer install and re-check your configuration.'
         );
+
+        $this->addRecommendation(
+            version_compare($installedPhpVersion, '5.3.4', '>='),
+            'You should use at least PHP 5.3.4 due to PHP bug #52083 in earlier versions',
+            'Your project might malfunction randomly due to PHP bug #52083 ("Notice: Trying to get property of non-object"). Instala PHP 5.3.4 o más reciente.'
+        );
+
+        $this->addRecommendation(
+            version_compare($installedPhpVersion, '5.3.8', '>='),
+            'When using annotations you should have at least PHP 5.3.8 due to PHP bug #55156',
+            'Install PHP 5.3.8 or newer if your project uses annotations.'
+        );
+
+        $this->addRecommendation(
+            version_compare($installedPhpVersion, '5.4.0', '!='),
+            'You should not use PHP 5.4.0 due to the PHP bug #61453',
+            'Your project might not work properly due to the PHP bug #61453 ("Cannot dump definitions which have method calls"). Instala PHP 5.4.1 o más reciente.'
+        );
+
+        if (null !== $pcreVersion) {
+            $this->addRecommendation(
+                $pcreVersion >= 8.0,
+                sprintf('PCRE extension should be at least version 8.0 (%s installed)', $pcreVersion),
+                '<strong>PCRE 8.0+</strong> is preconfigured in PHP since 5.3.2 but you are using an outdated version of it. Symfony probably works anyway but it is recommended to upgrade your PCRE extension.'
+            );
+        }
 
         $this->addRecommendation(
             class_exists('DomDocument'),
@@ -632,6 +696,14 @@ class SymfonyRequirements extends RequirementCollection
             'La ext. intl debe estar disponible',
             'Instala y activa la ext. <strong>intl</strong> (usada por los validadores).'
         );
+
+        if (class_exists('Collator')) {
+            $this->addRecommendation(
+                null !== new Collator('fr_FR'),
+                'debes configurar correctamente la ext. intl',
+                'La ext. intl no se comporta adecuadamente. Este problema normalmente es de compilaciones de PHP 5.3.X x64 WIN.'
+            );
+        }
 
         if (class_exists('Locale')) {
             if (defined('INTL_ICU_VERSION')) {

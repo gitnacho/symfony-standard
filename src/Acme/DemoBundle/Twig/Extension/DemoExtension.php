@@ -2,7 +2,6 @@
 
 namespace Acme\DemoBundle\Twig\Extension;
 
-use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Bundle\TwigBundle\Loader\FilesystemLoader;
 use CG\Core\ClassUtils;
 
@@ -33,7 +32,10 @@ class DemoExtension extends \Twig_Extension
 
     public function getCode($template)
     {
-        $controller = htmlspecialchars($this->getControllerCode(), ENT_QUOTES, 'UTF-8');
+        // highlight_string highlights php code only if '<?php' tag is present.
+        $controller = highlight_string("<?php" . $this->getControllerCode(), true);
+        $controller = str_replace('<span style="color: #0000BB">&lt;?php&nbsp;&nbsp;&nbsp;&nbsp;</span>', '&nbsp;&nbsp;&nbsp;&nbsp;', $controller);
+
         $template = htmlspecialchars($this->getTemplateCode($template), ENT_QUOTES, 'UTF-8');
 
         // quita el bloque de código

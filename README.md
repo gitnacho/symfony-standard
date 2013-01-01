@@ -1,170 +1,145 @@
-Edición estándar de Symfony en Español
-======================================
+Edición estándar de *Symfony* en español
+========================================
 
-Bienvenidos a la edición estándar de Symfony en Español - una aplicación
-Symfony2 totalmente funcional que puedes utilizar como el esqueleto de
-tu nueva aplicación con la ligera ventaja que está traducida al Español. 
-Si deseas obtener más información sobre las características
-incluidas, consulta la sección "¿Qué hay dentro?".
+Bienvenidos a la edición estándar de *Symfony* en español — una aplicación *Symfony2* totalmente funcional que puedes utilizar como el esqueleto de tu nueva aplicación con la ligera ventaja de que está traducida al español.
 
-Este documento contiene información sobre cómo descargar y comenzar a
-utilizar Symfony.  Para una explicación más detallada, ve el capítulo
-[Instalando](http://gitnacho.github.com/symfony-docs-es/book/installation.html)
-de la documentación de Symfony.
+Este documento contiene información sobre cómo descargar y comenzar a utilizar *Symfony*. Para una explicación más detallada, ve el capítulo [Instalación][1] de la documentación de *Symfony*.
 
-1) Descarga la edición estándar
--------------------------------
+1) Instalando la edición estándar
+---------------------------------
 
-Si ya has descargado la edición estándar, y la desempacaste en alguna parte
-dentro de tu directorio web raíz, entonces ve a la sección de "Instalación".
+Cuándo vas a instalar la edición estándar de *Symfony*, tienes las siguientes opciones.
 
-Para descargar la edición estándar, tienes dos opciones:
+### Usar `composer` (*recomendado*)
 
-### Descargar un archivo (*recomendado*)
+Debido a que *Symfony* usa [composer][2] para gestionar sus dependencias, la manera recomendable de crear un nuevo proyecto es utilizarlo.
 
-La forma más sencilla de empezar es descargando un archivo de la edición
-estándar desde (http://symfony.com/download). Descomprímelo en algún lugar
-bajo el directorio web raíz de tu servidor y listo. La raíz del directorio
-web es donde tu servidor web (por ejemplo Apache) accede a
-`http://localhost` en un navegador.
+Si todavía no tienes `composer`, descárgalo siguiendo las instrucciones en http://getcomposer.org/ o sólo ejecuta la siguiente orden:
 
-### Clonar el repositorio Git
+    curl -s http://getcomposer.org/installer | php
 
-Te recomendamos que descargues la versión empaquetada de esta distribución.
-Pero si todavía quieres usar Git, lo harás por cuenta propia.
+Luego, usa la orden `create-project` para generar una nueva aplicación *Symfony*:
 
-Ejecuta las siguientes instrucciones:
+    php composer.phar create-project symfony/framework-standard-edition ruta/a/instalar
 
-    git clone http://github.com/gitnacho/symfony-standard.git
-    cd symfony-standard
-    rm -rf .git
+`Composer` instalará *Symfony* y todas sus dependencias bajo el directorio `ruta/a/instalar`.
 
-2) Instalando
--------------
+### Descarga un Archivo
 
-Una vez hayas descargado la edición estándar, la instalación es fácil, y
-básicamente consiste en asegurarte de que tu sistema está listo para
-Symfony.
+Para probar *Symfony* rápidamente, también puedes descargar un [archivo][3] de la Edición
+Estándar y desempaquetarlo en algún lugar bajo tu directorio raíz del servidor de *web*.
 
-### a) Instala las bibliotecas de proveedores
-
-Si descargaste el archivo "sin vendors" o lo instalaste a través de git,
-entonces necesitas descargar todas las bibliotecas de proveedores. Si no
-estás seguro de si necesitas hacer esto, comprueba si tienes un directorio
-``vendor/``.  Si no es así, o si ese directorio está vacío, descarga el
-composer siguiendo las instrucciones de http://getcomposer.org/ y ejecuta la
-siguiente orden:
+Si descargaste un archivo «sin proveedores», también necesitas instalar todas las dependencias necesarias. Descarga `composer` (ve arriba) y ejecuta la siguiente orden:
 
     php composer.phar install
 
-### b) Comprueba la configuración de tu sistema
+2) Comprobando la configuración de tu sistema
+---------------------------------------------
 
-Ahora, asegúrate de que tu sistema local está correctamente configurado para
-Symfony. Para ello, ejecuta la siguiente instrucción:
+Antes de empezar a codificar, asegúrate que tu sistema local está configurado correctamente para *Symfony*.
+
+Ejecuta el archivo `check.php` desde la línea de ordenes:
 
     php app/check.php
 
-Si recibes advertencias o recomendaciones, entonces aplica las correcciones
-adecuadas antes de continuar.
+Accede al guión `config.php` desde un navegador:
 
-### c) Accede a la aplicación a través del navegador
+    http://localhost/path/to/symfony/app/web/config.php
 
-¡Enhorabuena! Ahora estás listo para usar Symfony. Si descomprimiste Symfony
-en la raíz de tu directorio web, entonces deberías poder acceder a la
-versión web para comprobar los requisitos de Symfony a través de:
+Si obtienes algún aviso o recomendación, arréglalo antes de continuar.
 
-    http://localhost/Symfony/web/config.php
+3) Explorando la aplicación de demostración
+-------------------------------------------
 
-Si todo se ve bien, haz clic en la opción "Pospón la configuración y llévame
-a la página de bienvenida" para cargar tu primer página Symfony.
+¡Enhorabuena! Ahora estás listo para usar Symfony.
 
-También puedes utilizar un configurador basado en web haciendo clic en el
-enlace a "Configura en línea tu aplicación Symfony" de la página
-``config.php``.
+Desde la página `config.php`, haz clic en el enlace «Pospón la configuración y llévame a la página de bienvenida» para cargar tu primer página *Symfony*.
 
-Para ver en acción páginas Symfony reales, accede a la siguiente página:
+También puedes utilizar un configurador basado en *web* haciendo clic en el enlace a «Configura en línea tu aplicación *Symfony*» de la página `config.php`.
 
-    web/app_dev.php/demo/hello/Symfony
+Para ver en acción páginas *Symfony* reales, accede a la siguiente página:
 
-3) ¡Aprende Symfony!
---------------------
+    `web/app_dev.php/demo/hello/Symfony`
 
-Esta distribución, no sólo está destinada a ser el punto de partida para tu
-aplicación, sino que además contiene código de ejemplo con el cual puedes
-juguetear para aprender.
+4) Empezando con *Symfony*
+--------------------------
 
-Una gran manera para comenzar a aprender Symfony además de la
-[Guía de inicio rápido](http://gitnacho.github.com/symfony-docs-es/quick_tour/the_big_picture.html),
-que te llevará a través de todas las características básicas de Symfony2 y
-las páginas de prueba que están disponibles en la edición estándar.
+Esta distribución está diseñada para ser el punto de partida tus aplicaciones *Symfony*, pero también contiene algún código de muestra con el cual puedes jugar y aprender.
 
-Una vez que te sientas cómodo, puedes seguir con la lectura del
-[libro oficial de Symfony2](http://gitnacho.github.com/symfony-docs-es/).
+Una gran manera de empezar a aprender *Symfony* es vía la guía de [Inicio rápido][4], la cual te lleva de la mano a través de todas las características básicas de *Symfony2*.
 
-Usando esta edición como la base de tu aplicación
--------------------------------------------------
+Una vez te sientas a gusto, puedes avanzar y leer el [libro oficial de Symfony2][5].
 
-Debido a que la edición estándar está totalmente configurada y viene con
-algunos ejemplos, tendrás que hacer algunos cambios antes de usarla para
-construir tu aplicación.
-
-La distribución viene preconfigurada con los siguientes valores:
-
-* Twig es el único motor de plantillas configurado;
-* Doctrine ORM/DBAL está configurado;
-* SwiftMailer está configurado;
-* Las anotaciones están habilitadas para todo.
-
-Un paquete predefinido, ``AcmeDemoBundle``, muestra a Symfony2 en acción. 
+Un paquete predefinido, `AcmeDemoBundle`, muestra a *Symfony2* en acción. 
 Después de jugar con él, lo puedes eliminar siguiendo estos pasos:
 
-* elimina el directorio ``src/Acme``;
-* quita las entradas de enrutado que hacen referencia a ``AcmeBundle`` en
-   ``app/config/routing_dev.yml``;
-* quita el ``AcmeBundle`` de los paquetes registrados en
-  ``app/AppKernel.php``;
-* elimina el directorio ``web/bundles/acmedemo``;
-* quita la inclusión de la configuración de seguridad en
-  ``app/config/config.yml`` (eliminar la línea ``- { resource: security.yml }``)
-  o ajusta la configuración predefinida para cubrir tus necesidades.
+  * elimina el directorio `src/Acme`;
+
+  * quita las entradas de enrutado que hacen referencia a `AcmeBundle` en `app/config/routing_dev.yml`;
+
+  * quita el `AcmeBundle` de los paquetes registrados en `app/AppKernel.php`;
+
+  * elimina el directorio `web/bundles/acmedemo`;
+
+  * elimina las entradas de `security.providers`, `security.firewalls.login` y `security.firewalls.secured_area` del archivo `security.yml` o ajusta la configuración de seguridad para cubrir tus necesidades.
 
 ¿Qué hay dentro?
 ----------------
 
-La edición estándar de Symfony viene preconfigurada con los siguientes
-paquetes:
+La edición estándar de *Symfony* viene preconfigurada con los siguientes paquetes:
 
-* **FrameworkBundle** - El paquete del núcleo de la plataforma Symfony
-* **SensioFrameworkExtraBundle** - Añade varias mejoras, incluyendo
-  plantillas y la capacidad enrutado desde anotaciones
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/bundles/SensioFrameworkExtraBundle/index.html))
-* **DoctrineBundle** - Agrega compatibilidad para el ORM de Doctrine
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/book/doctrine.html))
-* **TwigBundle** - Agrega compatibilidad para el motor de plantillas Twig
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/book/templating.html))
-* **SecurityBundle** - Añade seguridad integrando los componentes de
-  seguridad de Symfony
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/book/security.html))
-* **SwiftmailerBundle** - Agrega soporte para SwiftMailer, una biblioteca
-  para enviar mensajes de correo electrónico
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/cookbook/email.html))
-* **MonologBundle** - Agrega compatibilidad para Monolog, una biblioteca de
-  registro
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/cookbook/logging/monolog.html))
-* **AsseticBundle** - Agrega soporte para Assetic, una biblioteca para el
-  procesamiento de los activos ([documentación](http://gitnacho.github.com/symfony-docs-es/cookbook/assetic/asset_management.html))
-* **JMSSecurityExtraBundle** - Te permite definir la seguridad de tu
-  aplicación a través de anotaciones ([documentación](http://jmsyst.com/bundles/JMSSecurityExtraBundle/1.1))
-* **JMSDiExtraBundle** - Añade características más potentes a la inyección
-   de dependencias ([documentación](http://jmsyst.com/bundles/JMSDiExtraBundle/1.0))
-* **WebProfilerBundle** (en entornos dev/test) - Añade funcionalidad para la
-  creación de perfiles y la barra de herramientas de depuración web
-* **SensioDistributionBundle** (en entornos dev/test) - Añade funcionalidad
-  para configurar y trabajar con distribuciones Symfony
-* **SensioGeneratorBundle** (en entornos dev/test) - Añade la capacidad para
-  generar código
-  ([documentación](http://gitnacho.github.com/symfony-docs-es/bundles/SensioGeneratorBundle/index.html))
-* **AcmeDemoBundle** (en entornos dev/test) - Un paquete de demostración con
-    código de ejemplo
+  * Twig es el único motor de plantillas configurado;
+
+  * Doctrine ORM/DBAL está configurado;
+
+  * SwiftMailer está configurado;
+
+  * Las anotaciones están habilitadas para todo.
+
+Esta viene preconfigurada con los siguientes paquetes:
+
+  * **FrameworkBundle** — El paquete del núcleo de la plataforma *Symfony*
+
+  * [**SensioFrameworkExtraBundle**][6] — Añade varias mejoras, incluyendo plantilla y la capacidad de enrutado en anotaciones
+
+  * [**DoctrineBundle**][7] — Agrega compatibilidad para el *ORM* de *Doctrine*
+
+  * [**TwigBundle**][8] — Agrega compatibilidad para el motor de plantillas *Twig*
+
+  * [**SecurityBundle**][9] — Añade seguridad integrando los componentes de seguridad de *Symfony*
+
+  * [**SwiftmailerBundle**][10] — Agrega soporte para `SwiftMailer`, una biblioteca para enviar mensajes de correo electrónico
+
+  * [**MonologBundle**][11] — Agrega compatibilidad para *Monolog*, una biblioteca de registro cronológico
+
+  * [**AsseticBundle**][12] — Agrega compatibilidad para *Assetic*, una biblioteca para procesar los activos
+
+  * [**JMSSecurityExtraBundle**][13] — Permite añadir la seguridad vía anotaciones
+
+  * [**JMSDiExtraBundle**][14] — Agrega muy potentes características de inyección de dependencias
+
+  * **WebProfilerBundle** (en entornos dev/test) — Añade funcionalidad para la creación de perfiles y la barra de herramientas de depuración *web*
+
+  * **SensioDistributionBundle** (en entornos dev/test) — Añade funcionalidad para configurar y trabajar con distribuciones *Symfony*
+
+  * [**SensioGeneratorBundle**][15] (en entornos dev/test) — Añade la capacidad para generar código
+
+  * **AcmeDemoBundle** (en entornos dev/test) — Un paquete de demostración con código de ejemplo
 
 ¡Diviértete!
+
+[1]:  http://gitnacho.github.com/symfony-docs-es/book/installation.html
+[2]:  http://getcomposer.org/
+[3]:  http://symfony.com/download
+[4]:  http://gitnacho.github.com/symfony-docs-es/quick_tour/the_big_picture.html
+[5]:  http://gitnacho.github.com/symfony-docs-es/index.html
+[6]:  http://gitnacho.github.com/symfony-docs-es/bundles/SensioFrameworkExtraBundle/index.html
+[7]:  http://gitnacho.github.com/symfony-docs-es/book/doctrine.html
+[8]:  http://gitnacho.github.com/symfony-docs-es/book/templating.html
+[9]:  http://gitnacho.github.com/symfony-docs-es/book/security.html
+[10]: http://gitnacho.github.com/symfony-docs-es/cookbook/email.html
+[11]: http://gitnacho.github.com/symfony-docs-es/cookbook/logging/monolog.html
+[12]: http://gitnacho.github.com/symfony-docs-es/cookbook/assetic/asset_management.html
+[13]: http://jmsyst.com/bundles/JMSSecurityExtraBundle/master
+[14]: http://jmsyst.com/bundles/JMSDiExtraBundle/master
+[15]: http://gitnacho.github.com/symfony-docs-es/bundles/SensioGeneratorBundle/index.html

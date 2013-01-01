@@ -1,6 +1,15 @@
 imports:
     - { resource: config.yml }
 
+# En entorno de producción tendrías que saber que los parámetros para la
+# generación de URL siempre pasan los requisitos. De lo contrario
+# romperá tu enlace (o incluso el sitio con strict_requirements = true). 
+# Por tanto podemos desactivar la comprobación de requisitos completamente
+# para mejorar el rendimiento con strict_requirements = null.
+framework:
+    router:
+        strict_requirements: null
+
 #doctrine:
 #    orm:
 #        metadata_cache_driver: apc
