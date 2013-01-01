@@ -1,7 +1,7 @@
 Edición estándar de *Symfony* en español
 ========================================
 
-Bienvenidos a la edición estándar de *Symfony* en español — una aplicación *Symfony2* totalmente funcional que puedes utilizar como el esqueleto de tu nueva aplicación con la ligera ventaja de que está traducida al español.
+Bienvenido a la edición estándar de *Symfony* en español — una aplicación *Symfony2* totalmente funcional que puedes utilizar como el esqueleto de tu nueva aplicación con la ligera ventaja de que está traducida al español.
 
 Este documento contiene información sobre cómo descargar y comenzar a utilizar *Symfony*. Para una explicación más detallada, ve el capítulo [Instalación][1] de la documentación de *Symfony*.
 
@@ -10,7 +10,7 @@ Este documento contiene información sobre cómo descargar y comenzar a utilizar
 
 Cuándo vas a instalar la edición estándar de *Symfony*, tienes las siguientes opciones.
 
-### Usar `composer` (*recomendado*)
+### Usar `composer` (recomendado)
 
 Debido a que *Symfony* usa [composer][2] para gestionar sus dependencias, la manera recomendable de crear un nuevo proyecto es utilizarlo.
 
@@ -64,7 +64,7 @@ Para ver en acción páginas *Symfony* reales, accede a la siguiente página:
 4) Empezando con *Symfony*
 --------------------------
 
-Esta distribución está diseñada para ser el punto de partida tus aplicaciones *Symfony*, pero también contiene algún código de muestra con el cual puedes jugar y aprender.
+Esta distribución está diseñada para ser el punto de partida de tus aplicaciones *Symfony*, pero también contiene algún código de muestra con el cual puedes jugar y aprender.
 
 Una gran manera de empezar a aprender *Symfony* es vía la guía de [Inicio rápido][4], la cual te lleva de la mano a través de todas las características básicas de *Symfony2*.
 
@@ -100,7 +100,7 @@ Esta viene preconfigurada con los siguientes paquetes:
 
   * **FrameworkBundle** — El paquete del núcleo de la plataforma *Symfony*
 
-  * [**SensioFrameworkExtraBundle**][6] — Añade varias mejoras, incluyendo plantilla y la capacidad de enrutado en anotaciones
+  * [**SensioFrameworkExtraBundle**][6] — Añade varias mejoras, incluyendo plantillas y la capacidad de enrutado en anotaciones
 
   * [**DoctrineBundle**][7] — Agrega compatibilidad para el *ORM* de *Doctrine*
 

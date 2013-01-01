@@ -22,7 +22,7 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head lang="es">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="robots" content="noindex,nofollow" />
         <title>Configurando Symfony</title>
@@ -62,7 +62,7 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
             <div class="sf-reset">
                 <div class="block">
                     <div class="symfony-block-content">
-                        <h1 class="title">Welcome!</h1>
+                        <h1 class="title">¡Bienvenido!</h1>
                         <p>Bienvenido a tu nuevo proyecto Symfony.</p>
                         <p>
                             Este programa te guiará a través de la configuración básica de tu proyecto.

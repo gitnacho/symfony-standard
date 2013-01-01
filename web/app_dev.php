@@ -3,13 +3,12 @@
 use Symfony\Component\HttpFoundation\Request;
 
 // Si no quieres configurar los permisos de la manera convencional sólo quita el
-// comentario de la siguiente línea PHP
-//umask(0000);
-// lee http://gitnacho.github.com/symfony-docs-es/book/installation.html#instalando-y-configurando-symfony
-// para más información
+// comentario de la siguiente línea PHP, para más información lee
+// http://gitnacho.github.com/symfony-docs-es/book/installation.html#instalando-y-configurando-symfony
+// umask(0000);
 
 // Esto previene el acceso para depurar los controladores frontales que se
-// despliegan por accidente a los servidores de producción.
+    // despliegan por accidente a los servidores de producción.
 // Siéntete libre de quitarlo, extenderlo, o hacer algo mucho más sofisticado.
 if (isset($_SERVER['HTTP_CLIENT_IP'])
     || isset($_SERVER['HTTP_X_FORWARDED_FOR'])

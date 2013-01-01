@@ -2,10 +2,9 @@
 <?php
 
 // Si no quieres configurar los permisos de la manera convencional sólo
-// quita el comentario de la siguiente línea PHP
+// quita el comentario de la siguiente línea PHP, para más información lee
+// http://gitnacho.github.com/symfony-docs-es/book/installation.html#instalando-y-configurando-symfony
 //umask(0000);
-// lee http://gitnacho.github.com/symfony-docs-es/book/installation.html#instalando-y-configurando-symfony
-// para más información
 
 set_time_limit(0);
 

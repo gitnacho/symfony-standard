@@ -15,7 +15,7 @@ Debido a que las dependencias en los proyectos *Symfony 2.1*, son gestionadas po
 * El archivo `composer.lock` es el equivalente del `deps.lock` generado y este es generado automáticamente por `Composer`.
 
 Descarga los archivos
-[`composer.json`](https://raw.github.com/symfony/symfony-standard/2.1/composer.json) y [`composer.lock`](https://raw.github.com/symfony/symfony-standard/2.1/composer.lock) predefinidos para *Symfony 2.1* y ponlos en el directorio principal de tu proyecto. Si has personalizado tu archivo `deps`, mueve las dependencias añadias al archivo `composer.json` (muchos paquetes y bibliotecas *PHP* ya están disponibles como paquetes de `Composer` -- búscarlas en [Packagist](http://packagist.org/)).
+[`composer.json`](https://raw.github.com/symfony/symfony-standard/2.1/composer.json) y [`composer.lock`](https://raw.github.com/symfony/symfony-standard/2.1/composer.lock) predefinidos para *Symfony 2.1* y ponlos en el directorio principal de tu proyecto. Si has personalizado tu archivo `deps`, mueve las dependencias añadidas al archivo `composer.json` (muchos paquetes y bibliotecas *PHP* ya están disponibles como paquetes de `Composer` -- búscarlas en [Packagist](http://packagist.org/)).
 
 Elimina tu directorio `vendor` actual.
 
@@ -27,7 +27,7 @@ Nota: Debes completar los pasos de actualización de abajo para que `composer` p
 
 ### `app/autoload.php`
 
-El `autoload.php` predeterminado se lee como sigue (se ha simplificado mucho para que las bibliotecas cargadas automáticamente y los paquetes declarados en tu archivoc `composer.json` sea gestionado automáticamente por el autocargador de `Composer`):
+El `autoload.php` predeterminado se lee como sigue (se ha simplificado mucho para que las bibliotecas cargadas automáticamente y los paquetes declarados en tu archivoc `composer.json` sean gestionados automáticamente por el autocargador de `Composer`):
 
     <?php
 
@@ -209,12 +209,12 @@ El archivo `web/app_dev.php` ahora se lee como sigue:
     use Symfony\Component\HttpFoundation\Request;
 
     // Si no quieres configurar los permisos de la manera convencional sólo
-// quita el comentario de la siguiente línea PHP, para más información lee
-// http://gitnacho.github.com/symfony-docs-es/book/installation.html#instalando-y-configurando-symfony
-//umask(0000);
+    // quita el comentario de la siguiente línea PHP, para más información lee
+    // http://gitnacho.github.com/symfony-docs-es/book/installation.html#instalando-y-configurando-symfony
+    //umask(0000);
 
     // Esto previene el acceso para depurar los controladores frontales que se
-// despliegan por accidente a los servidores de producción.
+    // despliegan por accidente a los servidores de producción.
     // Siéntete libre de quitarlo, extenderlo, o hacer algo mucho más sofisticado.
     if (isset($_SERVER['HTTP_CLIENT_IP'])
         || isset($_SERVER['HTTP_X_FORWARDED_FOR'])

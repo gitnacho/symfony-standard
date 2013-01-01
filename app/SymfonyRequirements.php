@@ -12,7 +12,7 @@
 /*
  * Usuarios de PHP 5.2 deben poder ejecutar la comprobación de requisitos.
  * Esto es por lo que el archivo y todas las clases tienen que ser compatibles
- * con PHP 5.2+ (p.e. no usando espacios de nombres y cierres).
+ * con PHP 5.2+ (p. ej. no usando espacios de nombres y cierres).
  *
  * ************** PRECAUCIÓN **************
  *
@@ -446,7 +446,7 @@ class RequirementCollection implements IteratorAggregate
     /**
      * Devuelve todas las recomendaciones que no se han cumplido.
      *
-     * @return array Matriz de instancias de requisitos
+     * @return array Arreglo de instancias de requisitos
      */
     public function getFailedRecommendations()
     {
@@ -518,7 +518,7 @@ class SymfonyRequirements extends RequirementCollection
 
         $this->addRequirement(
             version_compare($installedPhpVersion, '5.3.16', '!='),
-            'La versión de PHP no debe ser 5.3.16 puesto que Symfony no trabaja apropiadamente con ella,
+            'La versión de PHP no debe ser 5.3.16 puesto que Symfony no trabaja apropiadamente con ella',
             'Instala PHP 5.3.17 o más reciente (o degrada PHP a una versión anterior)'
         );
 
@@ -621,41 +621,41 @@ class SymfonyRequirements extends RequirementCollection
 
         $this->addRequirement(
             null !== $pcreVersion,
-            'PCRE extension must be available',
-            'Install the <strong>PCRE</strong> extension (version 8.0+).'
+            'La extensión PCRE debe estar disponible',
+            'Instala la extensión <strong>PCRE</strong> (versión 8.0+).'
         );
 
         /* siguen las recomendaciones opcionales */
 
         $this->addRecommendation(
             file_get_contents(__FILE__) === file_get_contents(__DIR__.'/../vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/skeleton/app/SymfonyRequirements.php'),
-            'Requirements file should be up-to-date',
-            'Your requirements file is outdated. Run composer install and re-check your configuration.'
+            'El archivo de requsitos debe estar actualizado',
+            'Tu archivo de requisitos esta desactualizado. Ejecuta composer para instalarlos y vuelve a probar tu configuración.'
         );
 
         $this->addRecommendation(
             version_compare($installedPhpVersion, '5.3.4', '>='),
-            'You should use at least PHP 5.3.4 due to PHP bug #52083 in earlier versions',
-            'Your project might malfunction randomly due to PHP bug #52083 ("Notice: Trying to get property of non-object"). Instala PHP 5.3.4 o más reciente.'
+            'Por lo menos debes usar PHP 5.3.4 debido al fallo #52083 de PHP en las versiones anteriores',
+            'Tu proyecto funciona mal aleatoriamente debido al fallo #52083 de PHP ("Atención: Intentando obtener una propiedad de algo que no es un objeto"). Instala PHP 5.3.4 o más reciente.'
         );
 
         $this->addRecommendation(
             version_compare($installedPhpVersion, '5.3.8', '>='),
-            'When using annotations you should have at least PHP 5.3.8 due to PHP bug #55156',
-            'Install PHP 5.3.8 or newer if your project uses annotations.'
+            'Al usar anotaciones debes tener cuando menos PHP 5.3.8 debido al fallo #55156 de PHP',
+            'Instala PHP 5.3.8 o más reciente si tu proyecto usa anotaciones.'
         );
 
         $this->addRecommendation(
             version_compare($installedPhpVersion, '5.4.0', '!='),
-            'You should not use PHP 5.4.0 due to the PHP bug #61453',
-            'Your project might not work properly due to the PHP bug #61453 ("Cannot dump definitions which have method calls"). Instala PHP 5.4.1 o más reciente.'
+            'No debes usar PHP 5.4.0 debido al fallo #61453 de PHP',
+            'Tu proyecto no trabaja adecuadamente debido al fallo #61453 de PHP ("No se pueden volcar las definiciones que tienen llamadas a métodos"). Instala PHP 5.4.1 o más reciente.'
         );
 
         if (null !== $pcreVersion) {
             $this->addRecommendation(
                 $pcreVersion >= 8.0,
-                sprintf('PCRE extension should be at least version 8.0 (%s installed)', $pcreVersion),
-                '<strong>PCRE 8.0+</strong> is preconfigured in PHP since 5.3.2 but you are using an outdated version of it. Symfony probably works anyway but it is recommended to upgrade your PCRE extension.'
+                sprintf('La extensión PCRE cuando menos debe ser la versión 8.0 (tienes instalada la %s)', $pcreVersion),
+                '<strong>PCRE 8.0+</strong> está preconfigurado en PHP desde 5.3.2 pero estás usando una versión desactualizada. Probablemente Symfony trabaje de cualquier manera pero es recomendable actualizar tu extensión PCRE.'
             );
         }
 
