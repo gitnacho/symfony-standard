@@ -1,7 +1,7 @@
 imports:
     - { resource: config.yml }
 
-# En entorno de producción deberías que saber que los parámetros para la
+# En el entorno de producción deberías saber que los parámetros para la
 # generación de URL siempre pasan los requisitos. De lo contrario
 # romperá tu enlace (o incluso el sitio con strict_requirements = true). 
 # Por tanto podemos desactivar la comprobación de requisitos completamente

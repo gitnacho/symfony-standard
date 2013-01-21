@@ -2,14 +2,190 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
             <body>
-            <trans-unit id="1">
-                <source>Configure database</source>
-                <target>Configura la base de datos</target>
-            </trans-unit>
-            <trans-unit id="2">
-                <source>Configure your Database</source>
-                <target>Configura tu base de datos</target>
-            </trans-unit>
+              <trans-unit id="1">
+                <source>Welcome</source>
+                <target>Bienvenido</target>
+              </trans-unit>
+              <trans-unit id="2">
+                <source>Welcome!</source>
+                <target>¡Bienvenido!</target>
+              </trans-unit>
+              <trans-unit id="3">
+                <source>Congratulations! You have successfully installed a new Symfony application</source>
+                <target>¡Felicidades! Has instalado satisfactoriamente una nueva aplicación Symfony</target>
+              </trans-unit>
+              <trans-unit id="4">
+                <source>Quick tour</source>
+                <target>Inicio rápido</target>
+              </trans-unit>
+              <trans-unit id="5">
+                <source>Read the Quick Tour</source>
+                <target>Lee la guía de inicio rápido</target>
+              </trans-unit>
+              <trans-unit id="6">
+                <source>Configure your application</source>
+                <target>Configura tu aplicación</target>
+              </trans-unit>
+              <trans-unit id="7">
+                <source>Configure</source>
+                <target>Configurar</target>
+              </trans-unit>
+              <trans-unit id="8">
+                <source>Run The Demo</source>
+                <target>Ver la demostración</target>
+              </trans-unit>
+              <trans-unit id="9">
+                <source>Documentation</source>
+                <target>Documentación</target>
+              </trans-unit>
+              <trans-unit id="10">
+                <source>The Book</source>
+                <target>El libro</target>
+              </trans-unit>
+              <trans-unit id="11">
+                <source>The Cookbook</source>
+                <target>El recetario</target>
+              </trans-unit>
+              <trans-unit id="12">
+                <source>The Components</source>
+                <target>Los componentes</target>
+              </trans-unit>
+              <trans-unit id="13">
+                <source>Reference</source>
+                <target>Referencia</target>
+              </trans-unit>
+              <trans-unit id="14">
+                <source>Glossary</source>
+                <target>Glosario</target>
+              </trans-unit>
+              <trans-unit id="15">
+                <source>Trainings</source>
+                <target>Capacitación</target>
+              </trans-unit>
+              <trans-unit id="16">
+                <source>Books</source>
+                <target>Libros</target>
+              </trans-unit>
+              <trans-unit id="17">
+                <source>Community</source>
+                <target>Comunidad</target>
+              </trans-unit>
+              <trans-unit id="18">
+                <source>IRC channel</source>
+                <target>Canal IRC</target>
+              </trans-unit>
+              <trans-unit id="19">
+                <source>Mailing lists</source>
+                <target>Listas de correo</target>
+              </trans-unit>
+              <trans-unit id="20">
+                <source>Forum</source>
+                <target>Foro</target>
+              </trans-unit>
+              <trans-unit id="21">
+                <source>Contributing</source>
+                <target>Colaborando</target>
+              </trans-unit>
+              <trans-unit id="22">
+                <source>Hello </source>
+                <target>¡Hola, </target>
+              </trans-unit>
+              <trans-unit id="23">
+                <source>Hello</source>
+                <target>Hola</target>
+              </trans-unit>
+              <trans-unit id="24">
+                <source>Demos</source>
+                <target>Demostración</target>
+              </trans-unit>
+              <trans-unit id="25">
+                <source>Available demos</source>
+                <target>Demostraciones disponibles</target>
+              </trans-unit>
+              <trans-unit id="26">
+                <source>Hello World</source>
+                <target>Hola, mundo</target>
+              </trans-unit>
+              <trans-unit id="27">
+                <source>Go to the login page</source>
+                <target>Ve a la página de inicio de sesión</target>
+              </trans-unit>
+              <trans-unit id="28">
+                <source>Send a Message</source>
+                <target>Deja un comentario</target>
+              </trans-unit>
+              <trans-unit id="29">
+                <source>Demo Bundle</source>
+                <target>Paquete Demo</target>
+              </trans-unit>
+              <trans-unit id="30">
+                <source>Notice</source>
+                <target>Aviso</target>
+              </trans-unit>
+              <trans-unit id="31">
+                <source>Demo Home</source>
+                <target>Inicio demostración</target>
+              </trans-unit>
+              <trans-unit id="32">
+                <source>Code behind this page</source>
+                <target>Código detrás de esta página</target>
+              </trans-unit>
+              <trans-unit id="33">
+                <source>Hello resource secured for &lt;strong&gt;admin&lt;/strong&gt; only</source>
+                <target>El recurso Hola protegido, únicamente &lt;strong&gt;administradores&lt;/strong&gt;</target>
+              </trans-unit>
+              <trans-unit id="34">
+                <source>secured for Admins only</source>
+                <target>protegido, únicamente administradores</target>
+              </trans-unit>
+              <trans-unit id="35">
+                <source>logged in as</source>
+                <target>registrado cómo</target>
+              </trans-unit>
+              <trans-unit id="36">
+                <source>Logout</source>
+                <target>Salir</target>
+              </trans-unit>
+              <trans-unit id="37">
+                <source>Login</source>
+                <target>Iniciar sesión</target>
+              </trans-unit>
+              <trans-unit id="38">
+                <source>Choose between two default users</source>
+                <target>Elige uno de estos usuarios</target>
+              </trans-unit>
+              <trans-unit id="39">
+                <source>Username</source>
+                <target>Nombre usuario</target>
+              </trans-unit>
+              <trans-unit id="40">
+                <source>Username</source>
+                <target>Contraseña</target>
+              </trans-unit>
+              <trans-unit id="41">
+                <source>Contact form</source>
+                <target>Formulario de contacto</target>
+              </trans-unit>
+              <trans-unit id="42">
+                <source>Send</source>
+                <target>Enviar</target>
+              </trans-unit>
+              <trans-unit id="43">
+                <source>Search on Symfony website</source>
+                <target>Buscar en el sitio web de Symfony</target>
+              </trans-unit>
+              <trans-unit id="44">
+                <source>Ok</source>
+                <target>Buscar</target>
+              </trans-unit>
+              <trans-unit id="45">
+                <source>Access the secured area</source>
+                <target>Acceder al área protegida</target>
+              </trans-unit>
+              <trans-unit id="46">
+                <source>or</source>
+                <target>o</target>
+              </trans-unit>
             </body>
     </file>
 </xliff>

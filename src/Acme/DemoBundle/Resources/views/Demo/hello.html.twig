@@ -1,9 +1,9 @@
 {% extends "AcmeDemoBundle::base.html.twig" %}
 
-{% block title "Hello " ~ name %}
+{% block title %}{% trans %}Hello{% endtrans %} {{ name }}{% endblock %}
 
 {% block content %}
-    <h1>Hello {{ name }}!</h1>
+    <h1>{% trans %}Hello {% endtrans %}{{ name }}!</h1>
 {% endblock %}
 
 {% set code = code(_self) %}

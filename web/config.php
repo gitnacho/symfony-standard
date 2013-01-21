@@ -21,8 +21,8 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
 
 ?>
 <!DOCTYPE html>
-<html>
-    <head lang="es">
+<html lang="es">
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="robots" content="noindex,nofollow" />
         <title>Configurando Symfony</title>
@@ -42,15 +42,15 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
                     <div class="form-row">
 
                       <label for="search-id">
-                          <img src="bundles/framework/images/grey_magnifier.png" alt="Search on Symfony website" />
+                          <img src="bundles/framework/images/grey_magnifier.png" alt="{% trans %}Search on Symfony website{% endtrans %}" />
                       </label>
 
-                      <input name="q" id="search-id" type="search" placeholder="Search on Symfony website" />
+                      <input name="q" id="search-id" type="search" placeholder="{% trans %}Search on Symfony website{% endtrans %}" />
 
                       <button type="submit" class="sf-button">
                           <span class="border-l">
                             <span class="border-r">
-                                <span class="btn-bg">OK</span>
+                                <span class="btn-bg">{% trans %}OK{% endtrans %}</span>
                             </span>
                         </span>
                       </button>
@@ -62,7 +62,7 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
             <div class="sf-reset">
                 <div class="block">
                     <div class="symfony-block-content">
-                        <h1 class="title">¡Bienvenido!</h1>
+                        <h1 class="title">{% trans %}Welcome!{% endtrans %}</h1>
                         <p>Bienvenido a tu nuevo proyecto Symfony.</p>
                         <p>
                             Este programa te guiará a través de la configuración básica de tu proyecto.
@@ -82,8 +82,7 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
                         <?php if (count($minorProblems)): ?>
                             <h2>Recomendaciones</h2>
                             <p>
-                                <?php if (count($majorProblems)): ?>Adicionalmente, para<?php else: ?>Para<?php endif; ?> mejora tu experiencia con Symfony,
-                                es recomendable que corrijas lo siguiente:
+                                <?php if (count($majorProblems)): ?>Adicionalmente, para<?php else: ?>Para<?php endif; ?> mejorar tu experiencia con Symfony, es recomendable que corrijas lo siguiente:
                             </p>
                             <ol>
                                 <?php foreach ($minorProblems as $problem): ?>

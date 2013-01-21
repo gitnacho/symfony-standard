@@ -1,9 +1,9 @@
 {% extends "AcmeDemoBundle:Secured:base.html.twig" %}
 
-{% block title "Hello " ~ name %}
+{% block title %}{% trans %}Hello{% endtrans %} {{ name }}{% endblock %}
 
 {% block content %}
-    <h1 class="title">Hello {{ name }} secured for Admins only!</h1>
+    <h1 class="title">{% trans %}Hello {% endtrans %}{{ name }} {% trans %}secured for Admins only{% endtrans %}!</h1>
 {% endblock %}
 
 {% set code = code(_self) %}

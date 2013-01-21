@@ -1,25 +1,25 @@
 {% extends 'AcmeDemoBundle::base.html.twig' %}
 
-{% block title %}Symfony - Welcome{% endblock %}
+{% block title %}Symfony - {% trans %}Welcome{% endtrans %}{% endblock %}
 
 {% block content_header '' %}
 
 {% block content %}
-    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION') %}
 
-    <h1 class="title">¡Bienvenido!</h1>
+    <h1 class="title">{% trans %}Welcome!{% endtrans %}</h1>
 
-    <p>¡Felicidades! Has instalado satisfactoriamente una nueva aplicación Symfony.</p>
+    <p>{% trans %}Congratulations! You have successfully installed a new Symfony application{% endtrans %} {{ version }}.</p>
 
     <div class="symfony-blocks-welcome">
         <div class="block-quick-tour">
             <div class="illustration">
-                <img src="{{ asset('bundles/acmedemo/images/welcome-quick-tour.gif') }}" alt="Quick tour" />
+                <img src="{{ asset('bundles/acmedemo/images/welcome-quick-tour.gif') }}" alt="{% trans %}Quick tour{% endtrans %}" />
             </div>
-            <a href="http://symfony.com/doc/{{ version }}/quick_tour/index.html" class="sf-button sf-button-selected">
+            <a href="http://gitnacho.github.com/symfony-docs-es/quick_tour/index.html" class="sf-button sf-button-selected">
                 <span class="border-l">
                     <span class="border-r">
-                        <span class="btn-bg">Read the Quick Tour</span>
+                        <span class="btn-bg">{% trans %}Read the Quick Tour{% endtrans %}</span>
                     </span>
                 </span>
             </a>
@@ -27,12 +27,12 @@
         {% if app.environment == 'dev' %}
             <div class="block-configure">
                 <div class="illustration">
-                    <img src="{{ asset('bundles/acmedemo/images/welcome-configure.gif') }}" alt="Configura tu aplicación" />
+                    <img src="{{ asset('bundles/acmedemo/images/welcome-configure.gif') }}" alt="{% trans %}Configure your application{% endtrans %}" />
                 </div>
                 <a href="{{ path('_configurator_home') }}" class="sf-button sf-button-selected">
                     <span class="border-l">
                         <span class="border-r">
-                            <span class="btn-bg">Configure</span>
+                            <span class="btn-bg">{% trans %}Configure{% endtrans %}</span>
                         </span>
                     </span>
                 </a>
@@ -45,7 +45,7 @@
             <a href="{{ path('_demo') }}" class="sf-button sf-button-selected">
                 <span class="border-l">
                     <span class="border-r">
-                        <span class="btn-bg">Run The Demo</span>
+                        <span class="btn-bg">{% trans %}Run The Demo{% endtrans %}</span>
                     </span>
                 </span>
             </a>
@@ -55,28 +55,28 @@
     <div class="symfony-blocks-help">
         <div class="block-documentation">
             <ul>
-                <li><strong>Documentación</strong></li>
-                <li><a href="http://symfony.com/doc/{{ version }}/book/index.html">El libro</a></li>
-                <li><a href="http://symfony.com/doc/{{ version }}/cookbook/index.html">El recetario</a></li>
-                <li><a href="http://symfony.com/doc/{{ version }}/components/index.html">Los componentes</a></li>
-                <li><a href="http://symfony.com/doc/{{ version }}/reference/index.html">Referencia</a></li>
-                <li><a href="http://symfony.com/doc/{{ version }}/glossary.html">Glosario</a></li>
+                <li><strong>{% trans %}Documentation{% endtrans %}</strong></li>
+                <li><a href="http://gitnacho.github.com/symfony-docs-es/book/index.html">{% trans %}The Book{% endtrans %}</a></li>
+                <li><a href="http://gitnacho.github.com/symfony-docs-es/cookbook/index.html">{% trans %}The Cookbook{% endtrans %}</a></li>
+                <li><a href="http://gitnacho.github.com/symfony-docs-es/components/index.html">{% trans %}The Components{% endtrans %}</a></li>
+                <li><a href="http://gitnacho.github.com/symfony-docs-es/reference/index.html">{% trans %}Reference{% endtrans %}</a></li>
+                <li><a href="http://gitnacho.github.com/symfony-docs-es/glossary.html">{% trans %}Glossary{% endtrans %}</a></li>
             </ul>
         </div>
         <div class="block-documentation-more">
             <ul>
                 <li><strong>Sensio</strong></li>
-                <li><a href="http://trainings.sensiolabs.com">Capacitación</a></li>
-                <li><a href="http://books.sensiolabs.com">Libros</a></li>
+                <li><a href="http://trainings.sensiolabs.com">{% trans %}Trainings{% endtrans %}</a></li>
+                <li><a href="http://books.sensiolabs.com">{% trans %}Books{% endtrans %}</a></li>
             </ul>
         </div>
         <div class="block-community">
             <ul>
-                <li><strong>Comunidad</strong></li>
-                <li><a href="http://symfony.com/irc">Canal IRC</a></li>
-                <li><a href="http://symfony.com/mailing-lists">Listas de correo</a></li>
-                <li><a href="http://forum.symfony-project.org">Foro</a></li>
-                <li><a href="http://symfony.com/doc/{{ version }}/contributing/index.html">Contribuyendo</a></li>
+                <li><strong>{% trans %}Community{% endtrans %}</strong></li>
+                <li><a href="http://symfony.com/irc">{% trans %}IRC channel{% endtrans %}</a></li>
+                <li><a href="http://symfony.com/mailing-lists">{% trans %}Mailing lists{% endtrans %}</a></li>
+                <li><a href="http://forum.symfony-project.org">{% trans %}Forum{% endtrans %}</a></li>
+                <li><a href="http://gitnacho.github.com/symfony-docs-es/contributing/index.html">{% trans %}Contributing{% endtrans %}</a></li>
             </ul>
         </div>
     </div>

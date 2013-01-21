@@ -14,8 +14,8 @@ security:
         in_memory:
             memory:
                 users:
-                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                    usuario:  { password: paseusuario, roles: [ 'ROLE_USER' ] }
+                    admin: { password: paseadmin, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
         dev:
@@ -40,4 +40,9 @@ security:
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        #
+        # debes descomentar las dos siguientes reglas para restringir acceso a las
+        # rutas que empiezan con el prefijo /_internal para que únicamente sean
+        # accesibles desde localhost
         #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
+        #- { path: ^/_internal/secure, roles: ROLE_NO_ACCESS }

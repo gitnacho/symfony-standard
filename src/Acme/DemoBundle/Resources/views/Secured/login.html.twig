@@ -1,10 +1,10 @@
 {% extends 'AcmeDemoBundle::base.html.twig' %}
 
 {% block content %}
-    <h1 class="title">Login</h1>
+    <h1 class="title">{% trans %}Login{% endtrans %}</h1>
 
     <p>
-        Choose between two default users: <em>user/userpass</em> <small>(ROLE_USER)</small> or <em>admin/adminpass</em> <small>(ROLE_ADMIN)</small>
+        {% trans %}Choose between two default users{% endtrans %}: <em>usuaro/paseusuario</em> <small>(ROLE_USER)</small> {% trans %}or{% endtrans %} <em>admin/paseadmin</em> <small>(ROLE_ADMIN)</small>
     </p>
 
     {% if error %}
@@ -13,19 +13,19 @@
 
     <form action="{{ path("_security_check") }}" method="post" id="login">
         <div>
-            <label for="username">Username</label>
+            <label for="username">{% trans %}Username{% endtrans %}</label>
             <input type="text" id="username" name="_username" value="{{ last_username }}" />
         </div>
 
         <div>
-            <label for="password">Password</label>
+            <label for="password">{% trans %}Password{% endtrans %}</label>
             <input type="password" id="password" name="_password" />
         </div>
 
         <button type="submit" class="sf-button">
             <span class="border-l">
                 <span class="border-r">
-                    <span class="btn-bg">Login</span>
+                    <span class="btn-bg">{% trans %}Login{% endtrans %}</span>
                 </span>
             </span>
         </button>

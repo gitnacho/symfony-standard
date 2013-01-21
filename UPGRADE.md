@@ -12,10 +12,10 @@ Debido a que las dependencias en los proyectos *Symfony 2.1*, son gestionadas po
 
 * Es necesario sustituir el archivo `deps` con un `composer.json`.
 
-* El archivo `composer.lock` es el equivalente del `deps.lock` generado y este es generado automáticamente por `Composer`.
+* El archivo `composer.lock` es el equivalente del `deps.lock` generado y este automáticamente lo crea `Composer`.
 
 Descarga los archivos
-[`composer.json`](https://raw.github.com/symfony/symfony-standard/2.1/composer.json) y [`composer.lock`](https://raw.github.com/symfony/symfony-standard/2.1/composer.lock) predefinidos para *Symfony 2.1* y ponlos en el directorio principal de tu proyecto. Si has personalizado tu archivo `deps`, mueve las dependencias añadidas al archivo `composer.json` (muchos paquetes y bibliotecas *PHP* ya están disponibles como paquetes de `Composer` -- búscarlas en [Packagist](http://packagist.org/)).
+[`composer.json`](https://raw.github.com/symfony/symfony-standard/2.1/composer.json) y [`composer.lock`](https://raw.github.com/symfony/symfony-standard/2.1/composer.lock) predefinidos para *Symfony 2.1* y ponlos en el directorio principal de tu proyecto. Si has personalizado tu archivo `deps`, mueve las dependencias añadidas al archivo `composer.json` (muchos paquetes y bibliotecas *PHP* ya están disponibles como paquetes de `Composer` -- búscalos en [Packagist](http://packagist.org/)).
 
 Elimina tu directorio `vendor` actual.
 
@@ -104,7 +104,7 @@ La configuración del `jms_security_extra` se movió al archivo de configuració
 Se añadió un ejemplo de cómo enviar todos los correos electrónicos a una única dirección:
 
     #swiftmailer:
-    #    delivery_address: me@example.com
+    #    delivery_address: yo@ejemplo.com
 
 ### `app/config/config_test.yml`
 
@@ -160,8 +160,8 @@ Bajo `security.providers`, el ejemplo `in_memory` se actualizó a lo siguiente:
                 in_memory:
                     memory:
                         users:
-                            user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                            admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+                            usuario:  { password: paseusuario, roles: [ 'ROLE_USER' ] }
+                            admin: { password: paseadmin, roles: [ 'ROLE_ADMIN' ] }
 
 ### `app/AppKernel.php`
 
@@ -169,6 +169,14 @@ Los siguientes paquetes se han añadido a la lista de paquetes registrados por o
 
     new JMS\AopBundle\JMSAopBundle(),
     new JMS\DiExtraBundle\JMSDiExtraBundle($this),
+
+También tienes que renombrar el DoctrineBundle de:
+
+    new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
+
+a:
+
+    new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
 
 ### `web/app.php`
 

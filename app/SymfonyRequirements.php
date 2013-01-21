@@ -52,7 +52,7 @@ class Requirement
      *                                       las etiquetas HTML)
      * @param Boolean      $optional      Si este requisito solo es una
      *                                       recomendación opcional no
-     *                                       obligatoria
+     *                                       obligatorio
      */
     public function __construct($fulfilled, $testMessage, $helpHtml, $helpText = null, $optional = false)
     {
@@ -153,8 +153,8 @@ class PhpIniRequirement extends Requirement
      *                                              omisión internamente es
      *                                              true.
      * @param string|null       $testMessage        El mensaje para probar requisitos (cuándo
-                                             es null y $evaluation es un Booleano un
-                                             mensaje predefinido es derivado)
+                                             es null y $evaluation es un Booleano se
+                                             deriva un mensaje predefinido)
      * @param string            $helpHtml           El texto de ayuda en formato
      *                                              HTML para resolver el
      *                                              problema (cuando es null
@@ -488,8 +488,8 @@ class RequirementCollection implements IteratorAggregate
 }
 
 /**
- * Esta clase especifica todos los requisitos y recomendaciones opcionales que
- * son necesarias para ejecutar la Edición estándar de Symfony.
+ * Esta clase especifica todos los requisitos y recomendaciones opcionales
+ * necesarios para ejecutar la Edición estándar de Symfony.
  *
  * @author Tobias Schultze <http://tobion.de>
  * @author Fabien Potencier <fabien@symfony.com>
@@ -630,7 +630,7 @@ class SymfonyRequirements extends RequirementCollection
         $this->addRecommendation(
             file_get_contents(__FILE__) === file_get_contents(__DIR__.'/../vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/skeleton/app/SymfonyRequirements.php'),
             'El archivo de requsitos debe estar actualizado',
-            'Tu archivo de requisitos esta desactualizado. Ejecuta composer para instalarlos y vuelve a probar tu configuración.'
+            'Tu archivo de requisitos esta desactualizado. Ejecuta composer install y vuelve a probar tu configuración.'
         );
 
         $this->addRecommendation(

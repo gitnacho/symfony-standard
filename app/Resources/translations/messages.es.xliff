@@ -2,14 +2,10 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
             <body>
-            <trans-unit id="1">
-                <source>Configure database</source>
-                <target>Configura la base de datos</target>
-            </trans-unit>
-            <trans-unit id="2">
-                <source>Configure your Database</source>
-                <target>Configura tu base de datos</target>
-            </trans-unit>
+              <trans-unit id="1">
+                <source>Welcome</source>
+                <target>Bienvenido</target>
+              </trans-unit>
             </body>
     </file>
 </xliff>

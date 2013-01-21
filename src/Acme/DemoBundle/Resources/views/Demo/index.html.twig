@@ -1,14 +1,14 @@
 {% extends "AcmeDemoBundle::base.html.twig" %}
 
-{% block title "Symfony - Demos" %}
+{% block title %}"Symfony - {% trans %}Demos{% endtrans %}" {% endblock %}
 
 {% block content_header '' %}
 
 {% block content %}
-    <h1 class="title">Available demos</h1>
+    <h1 class="title">{% trans %}Available demos{% endtrans %}</h1>
     <ul id="demo-list">
-        <li><a href="{{ path('_demo_hello', {'name': 'World'}) }}">Hello World</a></li>
-        <li><a href="{{ path('_demo_secured_hello', {'name': 'World'}) }}">Accede al área segura</a> <a href="{{ path('_demo_login') }}">Ve a la página de iicio de sesión</a></li>
-        {# <li><a href="{{ path('_demo_contact') }}">Envía un mensaje</a></li> #}
+        <li><a href="{{ path('_demo_hello', {'name': 'World'}) }}">{% trans %}Hello World{% endtrans %}</a></li>
+        <li><a href="{{ path('_demo_secured_hello', {'name': 'World'}) }}">{% trans %}Access the secured area{% endtrans %}</a> <a href="{{ path('_demo_login') }}">{% trans %}Go to the login page{% endtrans %}</a></li>
+        {# <li><a href="{{ path('_demo_contact') }}">{% trans %}Send a Message{% endtrans %}</a></li> #}
     </ul>
 {% endblock %}
