@@ -70,13 +70,13 @@ Podrías querer añadir el nuevo parámetro `strict_requirements` a `framework.r
 
 Incluso, en producción puedes deshabilitar la comprobación de requisitos con `null` porque deberías saber que los parámetros para generar la *URL* siempre pasan los requisitos, p. ej. validándolos por adelantado. Esto además mejora el rendimiento. Consulta [config_prod.yml](https://github.com/symfony/symfony-standard/blob/master/app/config/config_prod.yml).
 
-El parámetro `default_locale` predefinido ahora es una opción de la configuración de `framework` principal (ve `framework.session` en 2.0 más adelante):
+El parámetro `default_locale` predefinido ahora es una opción de la configuración del `framework` principal (este, en la versión 2.0 estaba bajo `framework.session`):
 
     framework:
-        default_locale: %locale%
+        default_locale: "%locale%"
 
 La opción `auto_start` bajo `framework.session` se tiene que eliminar cuando ya no
-se utiliza (ahora, la sesión siempre se inicia bajo demanda). Si `auto_start` era la única opción bajo la `framework.session`, no la elimina por completo, sino que en su lugar pone su valor a `~` (`~` significa `null` en *YAML*):
+se utiliza (ahora, la sesión siempre se inicia bajo demanda). Si `auto_start` era la única opción bajo la clave `framework.session`, no la elimines por completo, sino que en su lugar pon su valor a `~` (en *YAML* `~` significa `null`):
 
     framework:
         session: ~

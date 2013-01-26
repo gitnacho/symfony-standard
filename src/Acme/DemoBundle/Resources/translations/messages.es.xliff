@@ -87,16 +87,16 @@
                 <target>Colaborando</target>
               </trans-unit>
               <trans-unit id="22">
-                <source>Hello </source>
-                <target>¡Hola, </target>
+                <source>Hello %name%!</source>
+                <target>¡Hola, %name%!</target>
               </trans-unit>
               <trans-unit id="23">
-                <source>Hello</source>
-                <target>Hola</target>
+                <source>Hello %name%</source>
+                <target>Hola, %name%</target>
               </trans-unit>
               <trans-unit id="24">
                 <source>Demos</source>
-                <target>Demostración</target>
+                <target>Demostraciones</target>
               </trans-unit>
               <trans-unit id="25">
                 <source>Available demos</source>
@@ -135,8 +135,8 @@
                 <target>El recurso Hola protegido, únicamente &lt;strong&gt;administradores&lt;/strong&gt;</target>
               </trans-unit>
               <trans-unit id="34">
-                <source>secured for Admins only</source>
-                <target>protegido, únicamente administradores</target>
+                <source>Hello %name% secured for Admins only!</source>
+                <target>Hola %name% protegido, !únicamente administradores!</target>
               </trans-unit>
               <trans-unit id="35">
                 <source>logged in as</source>
@@ -148,7 +148,7 @@
               </trans-unit>
               <trans-unit id="37">
                 <source>Login</source>
-                <target>Iniciar sesión</target>
+                <target>Entrar</target>
               </trans-unit>
               <trans-unit id="38">
                 <source>Choose between two default users</source>
@@ -160,7 +160,7 @@
               </trans-unit>
               <trans-unit id="40">
                 <source>Username</source>
-                <target>Contraseña</target>
+                <target>Usuario</target>
               </trans-unit>
               <trans-unit id="41">
                 <source>Contact form</source>
@@ -183,6 +183,14 @@
                 <target>Acceder al área protegida</target>
               </trans-unit>
               <trans-unit id="46">
+                <source>World</source>
+                <target>Mundo</target>
+              </trans-unit>
+              <trans-unit id="47">
+                <source>Password</source>
+                <target>Contraseña</target>
+              </trans-unit>
+              <trans-unit id="48">
                 <source>or</source>
                 <target>o</target>
               </trans-unit>

@@ -1,9 +1,9 @@
-{% extends "AcmeDemoBundle:Secured:base.html.twig" %}
+{% extends "AcmeDemoBundle:Secured:layout.html.twig" %}
 
-{% block title %}{% trans %}Hello{% endtrans %} {{ name }}{% endblock %}
+{% block title %}{% trans %}Hello %name%{% endtrans %}{% endblock %}
 
 {% block content %}
-    <h1 class="title">{% trans %}Hello {% endtrans %}{{ name }}!</h1>
+    <h1 class="title">{% trans %}Hello %name%!{% endtrans %}</h1>
 
     <a href="{{ path('_demo_secured_hello_admin', { 'name': name }) }}">{% trans %}Hello resource secured for <strong>admin</strong> only{% endtrans %}.</a>
 {% endblock %}

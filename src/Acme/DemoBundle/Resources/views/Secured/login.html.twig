@@ -1,10 +1,10 @@
-{% extends 'AcmeDemoBundle::base.html.twig' %}
+{% extends 'AcmeDemoBundle::layout.html.twig' %}
 
 {% block content %}
     <h1 class="title">{% trans %}Login{% endtrans %}</h1>
 
     <p>
-        {% trans %}Choose between two default users{% endtrans %}: <em>usuaro/paseusuario</em> <small>(ROLE_USER)</small> {% trans %}or{% endtrans %} <em>admin/paseadmin</em> <small>(ROLE_ADMIN)</small>
+        {% trans %}Choose between two default users{% endtrans %}: <em>usuario/paseusuario</em> <small>(ROLE_USER)</small> {% trans %}or{% endtrans %} <em>admin/paseadmin</em> <small>(ROLE_ADMIN)</small>
     </p>
 
     {% if error %}

@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DemoController extends Controller
 {
     /**
-     * @Route("/", name="_demo")
+     * @Route("/{_locale}/", name="_demo", defaults{ "_locale"="es" })
      * @Template()
      */
     public function indexAction()
@@ -22,7 +22,7 @@ class DemoController extends Controller
     }
 
     /**
-     * @Route("/hello/{name}", name="_demo_hello")
+     * @Route("/{_locale}/hello/{name}", name="_demo_hello")
      * @Template()
      */
     public function helloAction($name)
@@ -46,7 +46,7 @@ class DemoController extends Controller
                 // .. configura un mensaje y lo envía
                 // http://gitnacho.github.com/symfony-docs-es/cookbook/email.html
 
-                $this->get('session')->setFlash('notice', 'Message sent!');
+                $this->get('session')->setFlash('notice', $this->get('translator')->trans('Message sent!'));
 
                 return new RedirectResponse($this->generateUrl('_demo'));
             }

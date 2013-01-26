@@ -1,5 +1,0 @@
-# Descoméntalo para manejar contenido HTTP relativo a estrategias
-# tal como ESI
-#_proxy:
-#    resource: "@FrameworkBundle/Resources/config/routing/proxy.xml"
-#    prefix:   /proxy

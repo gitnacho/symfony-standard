@@ -42,15 +42,15 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
                     <div class="form-row">
 
                       <label for="search-id">
-                          <img src="bundles/framework/images/grey_magnifier.png" alt="{% trans %}Search on Symfony website{% endtrans %}" />
+                          <img src="bundles/framework/images/grey_magnifier.png" alt="Search on Symfony website" />
                       </label>
 
-                      <input name="q" id="search-id" type="search" placeholder="{% trans %}Search on Symfony website{% endtrans %}" />
+                      <input name="q" id="search-id" type="search" placeholder="Search on Symfony website" />
 
                       <button type="submit" class="sf-button">
                           <span class="border-l">
                             <span class="border-r">
-                                <span class="btn-bg">{% trans %}OK{% endtrans %}</span>
+                                <span class="btn-bg">OK</span>
                             </span>
                         </span>
                       </button>
@@ -62,7 +62,7 @@ $minorProblems = $symfonyRequirements->getFailedRecommendations();
             <div class="sf-reset">
                 <div class="block">
                     <div class="symfony-block-content">
-                        <h1 class="title">{% trans %}Welcome!{% endtrans %}</h1>
+                        <h1 class="title">¡Bienvenido!</h1>
                         <p>Bienvenido a tu nuevo proyecto Symfony.</p>
                         <p>
                             Este programa te guiará a través de la configuración básica de tu proyecto.
