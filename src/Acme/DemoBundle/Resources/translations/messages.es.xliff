@@ -194,6 +194,14 @@
                 <source>or</source>
                 <target>o</target>
               </trans-unit>
+              <trans-unit id="49">
+                <source>Message sent!</source>
+                <target>¡Mensaje enviado!</target>
+              </trans-unit>
+              <trans-unit id="50">
+                <source>message</source>
+                <target>mensaje</target>
+              </trans-unit>
             </body>
     </file>
 </xliff>
