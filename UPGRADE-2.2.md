@@ -1,6 +1,14 @@
 ACTUALIZANDO DE 2.1 A 2.2
 =========================
 
+ * La ruta ``_internal`` no se utiliza más. Esta será removida de ambas configuraciones, enrutado y seguridad. Se añadió una clave ``router_proxy`` a la configuración de ``framework`` y se tiene que especificar al usar ESI o Hinclude. Ninguna configuración de seguridad es requerida para esta ruta puesto que de manera predeterminada el acceso ESI es permitido únicamente para servidores confiables y el acceso Hinclude utiliza una mecanismo de firma URL.
+
+   ```
+   framework:
+       # ...
+       router_proxy: { path: /_proxy }
+   ```
+
 Pruebas funcionales
 -------------------
 

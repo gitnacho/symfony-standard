@@ -40,9 +40,3 @@ security:
 
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        #
-        # debes descomentar las dos siguientes reglas para restringir acceso a las
-        # rutas que empiezan con el prefijo /_internal para que únicamente sean
-        # accesibles desde localhost
-        #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
-        #- { path: ^/_internal/secure, roles: ROLE_NO_ACCESS }
